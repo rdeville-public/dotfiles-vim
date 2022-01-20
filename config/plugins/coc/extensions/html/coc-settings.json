@@ -1,0 +1,29 @@
+{
+  "html.enable": true,
+  "html.execArgv": [],
+  "html.trace.server": "off",
+  "html.filetypes": [
+      "html",
+      "handlebars",
+      "htmldjango",
+      "blade"
+    ],
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 120,
+  "html.format.unformatted": "wbr",
+  "html.format.contentUnformatted": "pre,code,textarea",
+  "html.format.indentInnerHtml": false,
+  "html.format.preserveNewLines": true,
+  "html.format.maxPreserveNewLines": null,
+  "html.format.indentHandlebars": false,
+  "html.format.endWithNewline": false,
+  "html.format.extraLiners": "head, body, /html",
+  "html.format.wrapAttributes": "auto",
+  "html.suggest.angular1": true,
+  "html.suggest.ionic": true,
+  "html.suggest.html5": true,
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+  "html.validate.html": true,
+  "html.autoClosingTags": true
+}

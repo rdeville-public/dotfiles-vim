@@ -1,0 +1,52 @@
+{
+  "explorer.mouseMode": "singleclick",
+  "explorer.focus": false,
+  "explorer.position": "left",
+  "explorer.width": 15,
+  "explorer.contentWidth": 80,
+  "explorer.previewAction.onHover": false,
+  "explorer.previewAction.content.maxHeight": 100,
+  "explorer.openAction.strategy":"previousBuffer",
+  "explorer.sources": [
+    {
+      "name": "bookmark",
+      "expand": true
+    },
+    {
+      "name": "buffer",
+      "expand": true
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.enableFloatinput": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.filename.colored.enable": true,
+  "explorer.diagnostic.displayMax": 99,
+  "explorer.diagnostic.enableSubscriptNumber": true,
+  "explorer.git.enable": true,
+  "explorer.git.command": "git",
+  "explorer.git.icon.rootStatus.stashed": "$",
+  "explorer.git.icon.rootStatus.ahead": "ﰵ",
+  "explorer.git.icon.rootStatus.behind": "ﰬ",
+  "explorer.git.icon.rootStatus.conflicted": "=",
+  "explorer.git.icon.rootStatus.untracked": "?",
+  "explorer.git.icon.rootStatus.modified": "-",
+  "explorer.git.icon.rootStatus.added": "+",
+  "explorer.git.icon.rootStatus.renamed": "➡",
+  "explorer.git.icon.rootStatus.deleted": "✗",
+  "explorer.git.icon.status.mixed": "✹",
+  "explorer.git.icon.status.modified": "✹",
+  "explorer.git.icon.status.added": "+",
+  "explorer.git.icon.status.deleted": "-",
+  "explorer.git.icon.status.renamed": "➡",
+  "explorer.git.icon.status.copied": "",
+  "explorer.git.icon.status.unmerged": "U",
+  "explorer.git.icon.status.untracked": "?",
+  "explorer.git.icon.status.ignored": " ",
+  "explorer.git.showIgnored": true,
+  "explorer.debug": false
+}

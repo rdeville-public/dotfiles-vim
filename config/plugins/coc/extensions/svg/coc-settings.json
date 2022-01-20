@@ -1,0 +1,10 @@
+{
+  "svg.completion.insertCloseTagSign": true,
+  "svg.completion.showAdvanced": false,
+  "svg.completion.showDeprecated": false,
+  "svg.disableFormatOnSave": false,
+  "svg.preview.background": "transparent",
+  "svg.preview.backgroundCustom": "#eee",
+  "svg.version": "1.1",
+  "svg.priority": 99
+}

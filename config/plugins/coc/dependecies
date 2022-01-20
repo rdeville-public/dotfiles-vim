@@ -1,0 +1,15 @@
+npm i -g bash-language-server
+prettier
+shfmt
+write-good
+languagetool
+cpplint
+hadolint
+stylelint
+tidy
+textidote
+black
+isort
+shfmt
+
+nginx-language-server

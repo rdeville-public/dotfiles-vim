@@ -1,0 +1,7 @@
+{
+  "pydocstring.enable": true,
+  "pydocstring.formatter": "google",
+  "pydocstring.ignoreException": false,
+  "pydocstring.ignoreYield": false,
+  "pydocstring.enableFileAction": true
+}
