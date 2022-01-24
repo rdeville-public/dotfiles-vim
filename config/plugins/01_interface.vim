@@ -46,6 +46,13 @@
   " Source: https://github.com/osyo-manga/vim-over
   Plug 'osyo-manga/vim-over'
 
+" ## `vim-tmux-navigator`
+  " Seamless navigation between tmux panes and vim splits
+  "
+  " Source: https://github.com/christoomey/vim-tmux-navigator
+  Plug 'christoomey/vim-tmux-navigator'
+
+
 " ------------------------------------------------------------------------------
 " VIM MODELINE
 " vim: fdm=indent

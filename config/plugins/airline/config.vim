@@ -195,7 +195,7 @@ let g:airline_symbols.paste = ' '
 let g:airline_symbols.spell = '﬜'
 let g:airline_symbols.notexists = ' ?'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.dirty=' ✗'
+let g:airline_symbols.dirty=' '
 let g:airline_symbols.branch = ''
 
 " ## Extensions
