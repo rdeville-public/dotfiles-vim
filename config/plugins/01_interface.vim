@@ -52,6 +52,11 @@
   " Source: https://github.com/christoomey/vim-tmux-navigator
   Plug 'christoomey/vim-tmux-navigator'
 
+" ## `Vim transparent`
+  " Remove all background color on Vim
+  "
+  " Source: https://github.com/tribela/vim-transparent
+  Plug 'tribela/vim-transparent'
 
 " ------------------------------------------------------------------------------
 " VIM MODELINE
