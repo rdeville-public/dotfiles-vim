@@ -111,7 +111,7 @@ let g:colors_name = "material-dark"
   " Tab pages line; active tab page label
   call g:SetHighlight  ( "TabLineSel"     , g:yellow_900       , ""                                                 )
   " The column separating vertically split windows
-  call g:SetHighlight  ( "VertSplit"      , g:grey_500         , g:grey_900                                         )
+  call g:SetHighlight  ( "VertSplit"      , g:grey_700         , g:grey_700                                         )
   " Used for the columns set with 'colorcolumn'
   call g:SetHighlight  ( "ColorColumn"    , ""                 , g:grey_800                                         )
   " Line used for closed folds
