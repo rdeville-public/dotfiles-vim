@@ -194,8 +194,8 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.paste = ' '
 let g:airline_symbols.spell = '﬜'
 let g:airline_symbols.notexists = ' ?'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.dirty=' '
+let g:airline_symbols.whitespace = '_'
+let g:airline_symbols.dirty=' +'
 let g:airline_symbols.branch = ''
 
 " ## Extensions
@@ -410,7 +410,7 @@ let g:airline#extensions#csv#column_display = 'Name'
 
   " Set hunk count symbols.
   " ```vim
-let g:airline#extensions#hunks#hunk_symbols = [' ', '✹ ', '✖ ']
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', 'x']
   " ```
 
   " Enable coc-git extension.

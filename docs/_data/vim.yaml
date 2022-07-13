@@ -32,9 +32,6 @@ vim:
   desc: >-
     My Vim and NeoVim dotfiles configuration.
 
-
-    These dotfiles are set to be managed with [vcsh](https://github.com/RichiH/vcsh)
-
   # (OPTIONAL) If you plan to use `mkdocstring` plugins to render python
   # source code, you will need to provide the path where your source files
   # are relative to the root of the repo.

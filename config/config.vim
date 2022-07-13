@@ -170,7 +170,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 nnoremap <esc> :noh<return><esc>
 
-nnoremap <leader>ww :VimwikiIndex<CR>
+nnoremap <leader>ww :WikiIndex<CR>
+nnoremap <leader>wi :WikiJournal<CR>
 
 " ------------------------------------------------------------------------------
 " VIM MODELINE

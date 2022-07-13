@@ -13,4 +13,4 @@ autocmd BufReadPost *
 
 autocmd VimEnter * colorscheme material-dark
 
-autocmd FileType vimwiki.markdown set ft=markdown.vimwiki
+"autocmd FileType vimwiki.markdown set ft=markdown.vimwiki
