@@ -39,6 +39,8 @@ if !len(s:colorizer_scripts) != 1
   "colorscheme material-light
 endif
 
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 " ------------------------------------------------------------------------------
 " VIM MODELINE
 " vim: fdm=indent
