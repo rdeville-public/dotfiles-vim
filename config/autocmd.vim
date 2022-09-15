@@ -1,16 +1,12 @@
 " # Autocmd
+  " Set of commands run automatically
 
-" Set of commands run automatically
+  " Automatically delete trailing whitespace at end of line for every file if
+  " not in Visual Multi Cursor Mode (either extended or cursor mode)
+  autocmd BufWrite * if !exists('b:visual_multi') | :call DeleteTrailingWS() | endif
 
-" Automatically delete trailing whitespace at end of line for every file
-autocmd BufWrite * :call DeleteTrailingWS()
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \  exe "normal! g`\"" |
-  \ endif
-
-autocmd VimEnter * colorscheme material-dark
-
-"autocmd FileType vimwiki.markdown set ft=markdown.vimwiki
+"if has('macunix')
+"  " Macos fix to avoid crontab not to be set correctly because backup is written
+"  " and not the cron file
+"  autocmd filetype crontab setlocal nobackup nowritebackup
+"endif
