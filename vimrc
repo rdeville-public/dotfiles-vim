@@ -25,23 +25,18 @@ set wildignore=
 
 " Load configuration for each plugins except hightlight if present as plugin
 " highlight are loaded from colorscheme file
-for i_filename in ['config','mapping','autocmd']
-  for f in split(glob(new_rtp . '/plugins/*/' . i_filename .'.vim'), '\n')
-    exe 'source' f
-  endfor
+for f in split(glob(new_rtp . '/plugins/*.vim'), '\n')
+  exe 'source' f
+endfor
+
+for f in split(glob(new_rtp . '/plugins/*/*.vim'), '\n')
+  exe 'source' f
 endfor
 
 exe 'source ' . new_rtp . '/autocmd.vim'
 
-let s:colorizer_scripts = filter(split(execute(':scriptname'), "\n"), 'v:val =~? "autoload/Colorizer.vim"')
-if !len(s:colorizer_scripts) != 1
-  colorscheme material-dark
-  "colorscheme material-light
-endif
-
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" ------------------------------------------------------------------------------
 " VIM MODELINE
 " vim: fdm=indent
 " ------------------------------------------------------------------------------
