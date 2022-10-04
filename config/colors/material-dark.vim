@@ -1,271 +1,236 @@
 " Vim color file
 
-let s:colorizer_scripts = filter(split(execute(':scriptname'), "\n"), 'v:val =~? "autoload/Colorizer.vim"')
-if len(s:colorizer_scripts) != 1
-  echoerr "[Error] Plugins Colorizer do not seems to be installed/activated."
-  echoerr "[Error] Please see https://github.com/chrisbra/colorizer."
-else
-  execute 'source ' . expand(get(split(get(s:colorizer_scripts,0), ':'),1))
+" If you're using a symlink to your script, but your resources are in
+" the same directory as the actual script, you'll need to do this:
+"   1: Get the absolute path of the script
+"   2: Resolve all symbolic links
+"   3: Get the folder of the resolved absolute file
+let s:script_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-" Highlighting function
-" Optional variables are attributes and guisp
-function! g:SetHighlight(group, guifg, guibg, ...)
-  let l:attr = get(a:, 1, "")
+function! HL(group, attr, fg, bg, ...)
+  " Function to HighLight (HL) colors based on group, foreground, background,
+  " attributes and special for gui.
   let l:guisp = get(a:, 2, "")
 
-  if a:guifg != ""
-    let l:ctermfg = Colorizer#RGB2Term(a:guifg,"!")
-    exec "hi! " . a:group . " guifg=" . a:guifg . " ctermfg=" . l:ctermfg
+  if len(a:fg) > 0
+    exec "hi! " . a:group . " guifg=" . a:fg[0] . " ctermfg=" . a:fg[1]
   endif
-  if a:guibg != ""
-    let l:ctermbg = Colorizer#RGB2Term(a:guibg,"!")
-    exec "hi! " . a:group . " guibg=" . a:guibg . " ctermbg=" . l:ctermbg
+  if len(a:bg) > 0
+    exec "hi! " . a:group . " guibg=" . a:bg[0] . " ctermbg=" . a:bg[1]
   endif
-  if l:attr != ""
-    exec "hi! " . a:group . " gui=" . l:attr . " cterm=" . l:attr
+  if a:attr != ""
+    exec "hi! " . a:group . " gui=" . a:attr . " cterm=" . a:attr
   else
     exec "hi! " . a:group . " gui=none cterm=none"
   endif
-  if l:guisp != ""
-    let l:ctermsp = Colorizer#RGB2Term(l:guisp,"!")
-    exec "hi! " . a:group . " guisp=" . l:guisp
+  if len(l:guisp) > 0
+    exec "hi! " . a:group . " guisp=" . l:guisp[0]
   endif
 endfunction
 
-function! g:LinkHighlight(groupdest, groupsrc)
+function! LK(groupdest, groupsrc, ...)
+  " Function to LinK (LK) a group to another already defined group
   exec "hi! default link " . a:groupdest . " " . a:groupsrc
 endfunction
 
-exe 'source ' . new_rtp . '/colors/definition/all_colors.vim'
+" Load every colors defined in folder definition/all_colors.vim next to this
+" script
+exe 'source ' . s:script_path . '/definition/all_colors.vim'
 
 " # Theme Setup
-" Reset syntax
+  " Reset syntax
 syntax reset
-" Define name of the colorscheme
+  " Define name of the colorscheme
 let g:colors_name = "material-dark"
 
-" ## Base Interface
-  " Italic text
-  call g:SetHighlight  ( "Italic"         , ""                 , ""                  , "italic"                     )
-  " Underline text
-  call g:SetHighlight  ( "Underlined"     , ""                 , ""                  , "underline"                  )
-  " Bold text
-  call g:SetHighlight  ( "Bold"           , ""                 , ""                  , "bold"                       )
-  " Normal text
-  call g:SetHighlight  ( "Normal"         , g:grey_100         , g:grey_900                                         )
-  " Normal text in floating windows.
-  call g:SetHighlight  ( "NormalFloat"    , g:grey_100         , g:grey_800                                         )
-  " Normal text in non-current windows
-  call g:SetHighlight  ( "NormalNC"       , ''                 , g:black                                            )
-  " Area for messages and cmdline
-  call g:LinkHighlight ( "MsgArea"        , "Normal"                                                                )
-  " Visual mode selection
-  call g:SetHighlight  ( "Visual"         , ""                 , g:grey_700                                         )
-  " Visual mode selection when vim is 'Not Owning the Selection'.
-  call g:LinkHighlight ( "VisualNOS"      , "Visual"                                                                )
-  " '@' at the end of the window characters from 'showbreak' Popup menu:
-  " selected item.
-  call g:SetHighlight  ( "NonText"        , g:grey_500         , ""                                                 )
-  " Debug statement
-  call g:SetHighlight  ( "Debug"          , g:white            , g:light_green_900                                  )
-  " Warning messages
-  call g:SetHighlight  ( "WarningMsg"     , g:white            , g:orange_900                                       )
-  " Error Statement
-  call g:SetHighlight  ( "Error"          , g:white            , g:red_900                                          )
-  " Error messages on the command line
-  call g:SetHighlight  ( "ErrorMsg"       , g:white            , g:red_900                                          )
-  " 'showmode' message;e.g. "-- INSERT --"                                                                          )
-  call g:SetHighlight  ( "ModeMsg"        , g:light_green_500  , ""                                                 )
-  " |more-prompt|
-  call g:SetHighlight  ( "MoreMsg"        , g:light_green_500  , ""                                                 )
-  " Line number for ':number' and ':#' commands and when 'number'
-  call g:SetHighlight  ( "LineNr"         , g:grey_400         , g:grey_700                                         )
-  " Screen-line at the cursor when 'cursorline' is set.
-  call g:SetHighlight  ( "CursorLine"     , ""                 , g:grey_800                                         )
-  " Screen-column at the cursor when 'cursorcolumn' is set.
-  call g:LinkHighlight ( "CursorColumn"   , "CursorLine"                                                            )
-  " Like LineNr when 'cursorline' or 'relativenumber' is set for
-  call g:LinkHighlight ( "CursorLineNr"   , "CursorLine"                                                            )
-  " Fold Column left to the line nr
-  call g:LinkHighlight ( "FoldColumn"     , "LineNr"                                                                )
-  " Popup menu: normal item.
-  call g:SetHighlight  ( "Pmenu"          , g:grey_200         , g:grey_800                                         )
-  " Popup menu: selected item.
-  call g:SetHighlight  ( "PmenuSel"       , g:grey_800         , g:green_500                                        )
-  " Popup menu: scrollbar.
-  call g:SetHighlight  ( "PmenuSbar"      , ""                 , g:grey_500                                         )
-  " Popup menu: Thumb of the scrollbar.
-  call g:SetHighlight  ( "PmenuThumb"     , ""                 , g:green_900                                        )
-  " Current font background and foreground colors of the menus.
-  call g:LinkHighlight ( "Menu"           , "Pmenu"                                                                 )
-  " Current match in 'wildmenu' completion
-  call g:LinkHighlight ( "WildMenu"       , "PmenuSel"                                                              )
-  " status line of current window
-  call g:SetHighlight  ( "StatusLine"     , ""                 , g:grey_700                                         )
-  " status lines of not-current windows
-  call g:SetHighlight  ( "StatusLineNC"   , ""                 , ""                                                 )
-  " Tab pages line not active tab page label
-  call g:SetHighlight  ( "TabLine"        , ""                 , ""                                                 )
-  " Tab pages line where there are no labels
-  call g:SetHighlight  ( "TabLineFill"    , ""                 , ""                                                 )
-  " Tab pages line; active tab page label
-  call g:SetHighlight  ( "TabLineSel"     , g:yellow_900       , ""                                                 )
-  " The column separating vertically split windows
-  call g:SetHighlight  ( "VertSplit"      , g:grey_700         , g:grey_700                                         )
-  " Used for the columns set with 'colorcolumn'
-  call g:SetHighlight  ( "ColorColumn"    , ""                 , g:grey_800                                         )
-  " Line used for closed folds
-  call g:SetHighlight  ( "Folded"         , g:grey_400         , g:grey_800          , "italic"                     )
-  " Last search pattern highlighting ;see 'hlsearch' .
-  call g:SetHighlight  ( "Search"         , ""                 , g:yellow_100                                       )
-  " 'incsearch' highlighting; also used for the text replaced with
-  call g:LinkHighlight ( "IncSearch"      , "Search"                                                                )
-  " |:substitute| replacement text highlighting
-  call g:SetHighlight  ( "Substitute"     , g:grey_800         , g:yellow_200                                       )
-  " The character under the cursor or just before it; if it
-  call g:SetHighlight  ( "MatchParen"     , ""                 , g:light_blue_200                                   )
-  " Unprintable characters: text displayed differently from what
-  " it really is. But not 'listchars' whitespace. |hl-Whitespace|
-  call g:SetHighlight  ( "SpecialKey"     , g:red_500          , ""                                                 )
-  " "nbsp"; "space"; "tab" and "trail" in 'listchars'
-  call g:SetHighlight  ( "Whitespace"     , ""                 , ""                                                 )
-  " Column where |signs| are displayed
-  call g:SetHighlight  ( "SignColumn"     , g:grey_400         , g:grey_800                                         )
-  " Filler lines `~` after the end of the buffer. cursor in an unfocused
-  " terminal
-  call g:SetHighlight  ( "EndOfBuffer"    , g:grey_900         , g:grey_900                                         )
-  " Title ;for markdown for instance
-  call g:SetHighlight  ( "Title"          , g:cyan_500         , ""                  , "bold"                       )
-  " Directory names and other special names in listings                                                             )
-  call g:SetHighlight  ( "Directory"      , g:teal_300         , ""                                                 )
+" ## General Vim
+" ### Base Interface
+  call HL("Italic"                   , "italic"                 , ""                 , "")                " Italic text
+  call HL("Underlined"               , "underline"              , ""                 , "")                " Underline text
+  call HL("Bold"                     , "bold"                   , ""                 , "")                " Bold text
+  call HL("Normal"                   , ""                       , g:grey_100         , g:grey_900)        " Normal text
+  call HL("NormalFloat"              , ""                       , g:grey_100         , g:grey_800)        " Normal text in floating windows.
+  call HL("NormalNC"                 , ""                       , ""                 , "")                " Normal text in non-current windows
+  call LK("MsgArea"                  , "Normal"                 , ""                 , "")                " Area for messages and cmdline
+  call HL("Visual"                   , ""                       , ""                 , g:lime_900) " Visual mode selection
+  call LK("VisualNOS"                , "Visual"                 , ""                 , "")                " Visual mode selection when vim is 'Not Owning the Selection'.
+  call HL("NonText"                  , ""                       , g:grey_500         , "")                " '@' at the end of the window characters from 'showbreak' Popup menu: selected item.
+  call HL("Debug"                    , ""                       , g:white            , g:light_green_900) " Debug statement
+  call HL("WarningMsg"               , ""                       , g:white            , g:orange_A200)     " Warning messages
+  call HL("Error"                    , ""                       , g:white            , g:red_A200)        " Error Statement
+  call HL("ErrorMsg"                 , ""                       , g:white            , g:red_A200)        " Error messages on the command line
+  call HL("ModeMsg"                  , ""                       , g:light_green_500  , "")                " 'showmode' message;e.g. '-- INSERT --'
+  call HL("MoreMsg"                  , ""                       , g:light_green_500  , "")                " |more-prompt|
+  call HL("LineNr"                   , ""                       , g:grey_400         , g:grey_700)        " Line number for ':number' and ':#' commands and when 'number'
+  call HL("CursorLine"               , ""                       , ""                 , g:grey_800)        " Screen-line at the cursor when 'cursorline' is set.
+  call LK("CursorColumn"             , "CursorLine"             , ""                 , "")                " Screen-column at the cursor when 'cursorcolumn' is set.
+  call LK("CursorLineNr"             , "CursorLine"             , ""                 , "")                " Like LineNr when 'cursorline' or 'relativenumber' is set for
+  call LK("FoldColumn"               , "LineNr"                 , ""                 , "")                " Fold Column left to the line nr
+  call HL("Pmenu"                    , ""                       , g:grey_200         , g:grey_800)        " Popup menu: normal item.
+  call HL("PmenuSel"                 , ""                       , g:grey_800         , g:green_500)       " Popup menu: selected item.
+  call HL("PmenuSbar"                , ""                       , ""                 , g:grey_500)        " Popup menu: scrollbar.
+  call HL("PmenuThumb"               , ""                       , ""                 , g:green_900)       " Popup menu: Thumb of the scrollbar.
+  call LK("Menu"                     , "Pmenu"                  , ""                 , "")                " Current font background and foreground colors of the menus.
+  call LK("WildMenu"                 , "PmenuSel"               , ""                 , "")                " Current match in 'wildmenu' completion
+  call HL("StatusLine"               , ""                       , ""                 , g:grey_700)        " status line of current window
+  call HL("StatusLineNC"             , ""                       , ""                 , "")                " status lines of not-current windows
+  call HL("TabLine"                  , ""                       , ""                 , "")                " Tab pages line not active tab page label
+  call HL("TabLineFill"              , ""                       , ""                 , "")                " Tab pages line where there are no labels
+  call HL("TabLineSel"               , ""                       , g:yellow_900       , "")                " Tab pages line; active tab page label
+  call HL("VertSplit"                , ""                       , g:grey_700         , g:grey_700)        " The column separating vertically split windows
+  call HL("ColorColumn"              , ""                       , ""                 , g:blue_grey_900)   " Used for the columns set with 'colorcolumn'
+  call HL("Folded"                   , "italic"                 , g:grey_400         , g:grey_800 )       " Line used for closed folds
+  call HL("Search"                   , ""                       , ""                 , g:yellow_100)      " Last search pattern highlighting ;see 'hlsearch' .
+  call LK("IncSearch"                , "Search"                 , ""                 , "")                " 'incsearch' highlighting; also used for the text replaced with
+  call HL("Substitute"               , ""                       , g:grey_800         , g:yellow_200)      " |:substitute| replacement text highlighting
+  call HL("MatchParen"               , ""                       , ""                 , g:black)           " The character under the cursor or just before it; if it
+  call HL("SpecialKey"               , ""                       , g:red_500          , "")                " Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+  call HL("Whitespace"               , ""                       , ""                 , "")                " 'nbsp'; 'space'; 'tab' and 'trail' in 'listchars'
+  call HL("SignColumn"               , ""                       , g:grey_400         , g:grey_800)        " Column where |signs| are displayed
+  call HL("EndOfBuffer"              , ""                       , g:grey_900         , g:grey_900)        " Filler lines `~` after the end of the buffer. cursor in an unfocused terminal
+  call HL("Title"                    , "bold"                   , g:cyan_A200        , "")                " Title ;for markdown for instance
+  call HL("Directory"                , ""                       , g:teal_A400        , "")                " Directory names and other special names in listings)
 
-" ## Diff Mode
-  " Diff mode: Added line |diff.txt|
-  call g:SetHighlight  ( "DiffAdd"        , g:green_500        , g:blue_grey_900                                    )
-  " Diff mode: Changed line |diff.txt|
-  call g:SetHighlight  ( "DiffChange"     , ""                 , g:brown_900                                        )
-  " Diff mode: Deleted line |diff.txt|
-  call g:SetHighlight  ( "DiffDelete"     , g:red_500          , g:blue_grey_900                                    )
-  " Diff mode: Changed text within a changed line |diff.txt|
-  call g:SetHighlight  ( "DiffText"       , ""                 , g:blue_grey_700     , "italic"                     )
+" ### Diff Mode
+  call HL("DiffAdd"                  , ""                       , g:green_A200       , g:blue_grey_900)   " Diff mode: Added line |diff.txt|
+  call HL("DiffChange"               , ""                       , ""                 , g:brown_900)       " Diff mode: Changed line |diff.txt|
+  call HL("DiffDelete"               , ""                       , g:red_500          , g:blue_grey_900)   " Diff mode: Deleted line |diff.txt|
+  call HL("DiffText"                 , "italic"                 , ""                 , g:blue_grey_700  ) " Diff mode: Changed text within a changed line |diff.txt|
 
-" ## Spelling
-  " Word that is not recognized by the spellchecker. |spell|
-  " Combined with the highlighting used otherwise.
-  call g:SetHighlight  ( "SpellBad"       , ""                 , ""                  , "undercurl"   , g:yellow_500 )
-  " Word that should start with a capital. |spell|
-  " Combined with the highlighting used otherwise.
-  call g:SetHighlight  ( "SpellCap"       , ""                 , ""                  , "undercurl"   , g:yellow_500 )
-  " speling
-  " Word that is recognized by the spellchecker as one that is used in another
-  " region. |spell|
-  " Combined with the highlighting used otherwise.
-  call g:SetHighlight  ( "SpellLocal"     , ""                 , ""                  , "undercurl"   , g:yellow_500 )
-  " Word that is recognized by the spellchecker as one that is hardly ever
-  " used. |spell|
-  " Combined with the highlighting used otherwise.
-  call g:SetHighlight  ( "SpellRare"      , ""                 , ""                  , "undercurl"   , g:yellow_500 )
+" ### Spelling
+  call HL("SpellBad"                 , "undercurl"              , g:yellow_500       , "")                " Word that is not recognized by the spellchecker.
+  call HL("SpellCap"                 , "undercurl"              , ""                 , "")                " Word that should start with a capital.
+  call HL("SpellLocal"               , "undercurl"              , ""                 , "")                " Word that is recognized by the spellchecker as one that is used in another region.
+  call HL("SpellRare"                , "undercurl"              , ""                 , "")                " Word that is recognized by the spellchecker as one that is hardly ever used.
 
-" ## Standard syntax highlighting
-  " Any Comment
-  call g:SetHighlight  ( "Comment"        , g:grey_400         , ""                                                 )
+" ### Standard syntax highlighting
+  call HL("Comment"                  , ""                       , g:grey_400         , "")                " Any Comment
 
-" ## Value
-  " Any constant
-  call g:SetHighlight  ( "Constant"       , g:orange_A200      , ""                                                 )
-  " A string constant: "this is a string"
-  call g:SetHighlight  ( "String"         , g:deep_orange_A200 , ""                                                 )
-  " A character constant: 'c'; '\n'
-  call g:SetHighlight  ( "Character"      , g:red_A200         , ""                                                 )
-  " A number constant: 234; 0xff
-  call g:SetHighlight  ( "Number"         , g:amber_A200       , ""                                                 )
-  " A boolean constant: TRUE; false
-  call g:SetHighlight  ( "Boolean"        , g:orange_A200      , ""                                                 )
-  " A floating point constant: 2.3e10
-  call g:LinkHighlight ( "Float"          , "Number"                                                                )
+" ### Value
+  call HL("Constant"                 , ""                       , g:orange_A200      , "")                " Any constant
+  call HL("String"                   , ""                       , g:red_A200         , "")                " A string constant: 'this is a string'
+  call HL("Character"                , ""                       , g:red_A400         , "")                " A character constant: 'c'; '\n'
+  call HL("Number"                   , ""                       , g:amber_A200       , "")                " A number constant: 234; 0xff
+  call HL("Boolean"                  , ""                       , g:orange_A200      , "")                " A boolean constant: TRUE; false
+  call LK("Float"                    , "Number"                 , ""                 , "")                " A floating point constant: 2.3e10
 
-" ## Definition
-  " Any variable name
-  call g:SetHighlight  ( "Identifier"     , g:purple_A100      , ""                                                 )
-  " Function name also: methods for classes                                                                         )
-  call g:SetHighlight  ( "Function"       , g:deep_purple_A100 , ""                                                 )
+" ### Definition
+  call HL("Identifier"               , ""                       , g:purple_A100      , "")                " Any variable name
+  call HL("Function"                 , ""                       , g:deep_purple_A100 , "")                " Function name also: methods for classes)
 
-" ## Keywords
-  " Any statement
-  call g:SetHighlight  ( "Statement"      , g:cyan_A100        , ""                                                 )
-  " If; then; else; endif; switch; etc.
-  call g:SetHighlight  ( "Conditional"    , g:blue_A100        , ""                                                 )
-  " For; do; while; etc.
-  call g:LinkHighlight ( "Repeat"         , "Statement"                                                             )
-  " Case; default; etc.
-  call g:LinkHighlight ( "Label"          , "Conditional"                                                           )
-  " "sizeof"; "+"; "*"; etc.
-  call g:LinkHighlight ( "Operator"       , "Statement"                                                             )
-  " Any other keyword
-  call g:SetHighlight  ( "Keyword"        , g:light_blue_A100  , ""                                                 )
-  " Try; catch; throw
-  call g:LinkHighlight ( "Exception"      , "Statement"                                                             )
+" ### Keywords
+  call HL("Statement"                , ""                       , g:cyan_A100        , "")                " Any statement
+  call HL("Conditional"              , ""                       , g:blue_A100        , "")                " If; then; else; endif; switch; etc.
+  call LK("Repeat"                   , "Statement"              , ""                 , "")                " For; do; while; etc.
+  call LK("Label"                    , "Conditional"            , ""                 , "")                " Case; default; etc.
+  call LK("Operator"                 , "Statement"              , ""                 , "")                " "sizeof"; "+"; "*"; etc.
+  call HL("Keyword"                  , ""                       , g:light_blue_A100  , "")                " Any other keyword
+  call LK("Exception"                , "Statement"              , ""                 , "")                " Try; catch; throw
 
-" ## Macro & Preprocessor
-  " Generic Preprocessor
-  call g:SetHighlight  ( "PreProc"        , g:yellow_A400      , ""                                                 )
-  " Preprocessor #include
-  call g:LinkHighlight ( "Include"        , "PreProc"                                                               )
-  " Preprocessor #define
-  call g:LinkHighlight ( "Define"         , "PreProc"                                                               )
-  " Same as Define
-  call g:LinkHighlight ( "Macro"          , "PreProc"                                                               )
-  " Preprocessor #if; #else; #endif; etc.
-  call g:LinkHighlight ( "PreCondit"      , "PreProc"                                                               )
+" ### Macro & Preprocessor
+  call HL("PreProc"                  , ""                       , g:yellow_A400      , "")                " Generic Preprocessor
+  call LK("Include"                  , "PreProc"                , ""                 , "")                " Preprocessor #include
+  call LK("Define"                   , "PreProc"                , ""                 , "")                " Preprocessor #define
+  call LK("Macro"                    , "PreProc"                , ""                 , "")                " Same as Define
+  call LK("PreCondit"                , "PreProc"                , ""                 , "")                " Preprocessor #if; #else; #endif; etc.
 
-" ## Type
-  " Int; long; char; etc.
-  call g:SetHighlight  ( "Type"           , g:light_green_A200 , ""                                                 )
-  " Static; register; volatile; etc.
-  call g:SetHighlight  ( "StorageClass"   , g:green_A200       , ""                                                 )
-  " Struct; union; enum; etc.
-  call g:SetHighlight  ( "Structure"      , g:light_green_A200 , ""                                                 )
-  " A typedef
-  call g:SetHighlight  ( "Typedef"        , g:green_A200       , ""                                                 )
+" ### Type
+  call HL("Type"                     , ""                       , g:light_green_A200 , "")                " Int; long; char; etc.
+  call HL("StorageClass"             , ""                       , g:green_A200       , "")                " Static; register; volatile; etc.
+  call HL("Structure"                , ""                       , g:light_green_A200 , "")                " Struct; union; enum; etc.
+  call HL("Typedef"                  , ""                       , g:green_A200       , "")                " A typedef
 
-" ## Special
-  " Any special symbol
-  call g:SetHighlight  ( "Special"        , g:orange_A200      , ""                                                 )
-  " Special character in a constant
-  call g:SetHighlight  ( "SpecialChar"    , g:deep_orange_A200 , ""                                                 )
-  " You can use CTRL-] on this
-  call g:SetHighlight  ( "Tag"            , g:deep_orange_A200 , ""                                                 )
-  " Character that needs attention
-  call g:SetHighlight  ( "Delimiter"      , g:red_A200         , ""                                                 )
-  " Special things inside a comment
-  call g:SetHighlight  ( "SpecialComment" , g:red_A200         , ""                                                 )
+" ### Special
+  call HL("Special"                  , ""                       , g:orange_A200      , "")                " Any special symbol
+  call HL("SpecialChar"              , ""                       , g:deep_orange_A200 , "")                " Special character in a constant
+  call HL("Tag"                      , ""                       , g:deep_orange_A200 , "")                " You can use CTRL-] on this
+  call HL("Delimiter"                , ""                       , g:red_A200         , "")                " Character that needs attention
+  call HL("SpecialComment"           , ""                       , g:red_A200         , "")                " Special things inside a comment
 
-" ## Todo
-  " Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-  call g:SetHighlight  ( "Todo"           , g:red_A700         , g:yellow_A200                                      )
+" ### Todo
+  call HL("Todo"                     , ""                       , g:red_A700         , g:yellow_A200)     " Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-" Mail highlighting
-"call g:SetHighlight("mailQuoted1"                , g:yellow      , ""         )
-"call g:SetHighlight("mailQuoted2"                , g:light_green , ""         )
-"call g:SetHighlight("mailQuoted3"                , g:purple      , ""         )
-"call g:SetHighlight("mailQuoted4"                , g:light_blue  , ""         )
-"call g:SetHighlight("mailQuoted5"                , g:blue        , ""         )
-"call g:SetHighlight("mailQuoted6"                , g:yellow      , ""         )
-"call g:SetHighlight("mailURL"                    , g:blue        , ""         )
-"call g:SetHighlight("mailEmail"                  , g:blue        , ""         )
-"
+" ## Filetype Specific
+" ### Git Highlighting
+  call LK("gitcommitOverflow"        , "Error"                  , ""                 , "")
+  call LK("gitcommitType"            , "Type"                   , ""                 , "")
+  call HL("gitcommitDiscardedType"   , ""                       , g:orange_A400      , "")
+  call HL("gitcommitSelectedType"    , ""                       , g:light_green_A400 , "")
+  call HL("gitcommitUnmergedType"    , ""                       , g:red_A400         , "")
+  call LK("gitcommitBlank"           , "Error"                  , ""                 , "")
+  call LK("gitcommitComment"         , "Comment"                , ""                 , "")
+  call HL("gitcommitOnBranch"        , ""                       , g:blue_A200        , "")
+  call LK("gitcommitUntracked"       , "gitcommitUnmergedType"  , ""                 , "")
+  call LK("gitcommitDiscarded"       , "gitcommitDiscardedType" , ""                 , "")
+  call LK("gitcommitSelected"        , "gitcommitSelectedType"  , ""                 , "")
+  call LK("gitcommitUnmerged"        , "gitcommitUnmergedType"  , ""                 , "")
+  call HL("gitcommitArrow"           , ""                       , ""                 , "")
+  call HL("gitcommitDiscardedArrow"  , ""                       , ""                 , "")
+  call HL("gitcommitSelectedArrow"   , ""                       , ""                 , "")
+  call HL("gitcommitUnmergedArrow"   , ""                       , ""                 , "")
+  call LK("gitcommitFile"            , "Normal"                 , ""                 , "")
+  call HL("gitcommitUntrackedFile"   , ""                       , g:red_A100         , "")
+  call HL("gitcommitDiscardedFile"   , ""                       , g:orange_A100      , "")
+  call HL("gitcommitSelectedFile"    , ""                       , g:light_green_A100 , "")
+  call LK("gitcommitUnmergedFile"    , "gitcommitUntrackedFile" , ""                 , "")
+  call HL("gitcommitBranch"          , ""                       , g:deep_purple_A100 , "")
+  call HL("gitcommitNoBranch"        , ""                       , g:red_A200         , "")
+  call HL("gitcommitHeader"          , "Bold"                   , g:light_blue_A200  , "")
+  call LK("gitcommitNoChanges"       , "Normal"                 , ""                 , "")
+  call HL("gitcommitSummary"         , ""                       , ""                 , "")
 
-" Load custom syntax per languague
-for f in split(glob(new_rtp . '/colors/syntax/*.vim'), '\n')
-  exe 'source' f
-endfor
+" ### Jinja2
+  call LK("jinjaOperator"            , "Nop"                    , ""                 , "")
+  call LK("jinjaString"              , "String"                 , ""                 , "")
 
-for f in split(glob(new_rtp . '/plugins/*/highlight.vim'), '\n')
-  exe 'source' f
-endfor
+" ### Markdown
+  call LK("markdownHeadingDelimiter" , "Title"                  , ""                 , "")
 
-silent! AirlineRefresh
-"
-endif
+" ### Vimscript Syntax
+  call LK("vimCommand"               , "Keyword"                , ""                 , "")
+  call LK("vimFuncBody"              , "Function"               , ""                 , "")
+  call LK("vimFuncVar"               , "Nop"                    , ""                 , "")
+  call LK("vimNotFunc"               , "Conditional"            , ""                 , "")
+  call LK("vimUserFunc"              , "Function"               , ""                 , "")
+  call LK("vimVar"                   , "Nop"                    , ""                 , "")
+
+" ### YAML Syntax Highlight
+  call LK("yamlFlowString"           , "String"                 , ""                 , "")
+  call LK("yamlBool"                 , "Boolean"                , ""                 , "")
+
+" ### Mail highlighting
+  call HL("mailQuoted1"              , ""                       , g:purple_A100      , "")
+  call HL("mailQuoted2"              , ""                       , g:indigo_A100      , "")
+  call HL("mailQuoted3"              , ""                       , g:cyan_A100        , "")
+  call HL("mailQuoted4"              , ""                       , g:green_A100       , "")
+  call HL("mailQuoted5"              , ""                       , g:yellow_A100      , "")
+  call HL("mailQuoted6"              , ""                       , g:orange_A100      , "")
+  call HL("mailURL"                  , ""                       , g:blue_A200        , "")
+  call HL("mailEmail"                , ""                       , g:blue_A200        , "")
+
+" ## Plugins
+" ### Vim Indent Guides
+  call HL("IndentGuidesOdd"          , ""                       , ""                 , g:brown_800)
+  call HL("IndentGuidesEven"         , ""                       , ""                 , "")
+
+" ### Git Blame Nvim
+  call HL("GitBlame"                 , ""                       , g:brown_300        , g:grey_900)
+
+" ## CoC
+" ### CoC - Menu
+  call HL("CocMenuSel"               , ""                       , ""                 , g:light_green_900)
+
+" ### CoC - Float
+  call HL("CocFloating"              , ""                       , g:grey_300         , g:grey_900)
+
+" ### CoC - List Statusline
+  call HL("CocListMode"              , "bold"                   , g:black            , g:yellow_A100)
+  call HL("CocListModeToNumber"      , ""                       , g:yellow_A100      , g:grey_800)
+  call HL("CocListNumber"            , ""                       , g:green_A100       , g:grey_800)
+  call HL("CocListNumberToInfo"      , ""                       , g:grey_800         , g:grey_A700)
+  call HL("CocListInfo"              , ""                       , g:grey_300         , g:grey_A700)
+
+" ### CoC - Snippet
+  call HL("CocSnippetVisual"         , ""                       , g:yellow_A100      , g:grey_800)
 
 " vim: fdm=indent
