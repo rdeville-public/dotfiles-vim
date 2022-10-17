@@ -211,7 +211,7 @@ scriptencoding utf-8
     " Include `uhex` to show unprintable characters as a hex number
   set display=lastline
     " Characters to use for the status line, folds and filler lines
-  set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:−,diff:x
+  set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:−,foldopen:,foldclose:,diff:x,foldsep:│
     " Number of lines used for the command-line
   set cmdheight=1
     " Number of lines to scroll for CTRL-F and CTRL-B
@@ -225,7 +225,8 @@ scriptencoding utf-8
     " Show <Tab> as ^I and end-of-line as $ (local to window)
   set list
     " List of strings used for list mode
-  set listchars=eol:¬,tab:>-,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
+  "set listchars=eol:¬,tab:··,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
+  set listchars=tab:˾\ ,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
     " Show the line number for each line (local to window)
   set number
     " Show the relative line number for each line (local to window)
@@ -554,7 +555,7 @@ scriptencoding utf-8
     " Value for 'foldlevel' when starting to edit a file
   set foldlevelstart=-1
     " Width of the column used to indicate folds (local to window)
-  set foldcolumn=2
+  set foldcolumn=3
     " Expression used to display the text of a closed fold (local to window)
   set foldtext=foldtext()
     " Set to `all` to close a fold when the cursor leaves it
@@ -568,11 +569,11 @@ scriptencoding utf-8
   set commentstring=/*%s*/
     " Folding type: `manual`, `indent`, `expr`, `marker` or `syntax`
     " (local to window)
-  set foldmethod=syntax
+  set foldmethod=indent
     " Expression used when 'foldmethod' is `expr` (local to window)
   set foldexpr=0
     " Used to ignore lines when 'foldmethod' is `indent` (local to window)
-  set foldignore=#
+  set foldignore=
     " Markers used when 'foldmethod' is `marker` (local to window)
   set foldmarker=[[[,]]]
     " Maximum fold depth for when 'foldmethod' is `indent` or `syntax`
