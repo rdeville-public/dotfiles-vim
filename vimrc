@@ -12,28 +12,28 @@
 let vimrc_basedir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 " Generate path to custom runtime
-let new_rtp = vimrc_basedir . '/config'
+let g:new_rtp = vimrc_basedir . '/config'
 
 " Update runtime path by adding vim configuration folder
-exe 'set rtp+=' . expand(new_rtp)
+exe 'set rtp+=' . expand(g:new_rtp)
 
 set wildignore=**autocmd.vim,**Session.vim
-for f in split(glob(new_rtp . '/*.vim'), '\n')
+for f in split(glob(g:new_rtp . '/*.vim'), '\n')
   exe 'source ' f
 endfor
 set wildignore=
 
 " Load configuration for each plugins except hightlight if present as plugin
 " highlight are loaded from colorscheme file
-for f in split(glob(new_rtp . '/plugins/*.vim'), '\n')
+for f in split(glob(g:new_rtp . '/plugins/*.vim'), '\n')
   exe 'source' f
 endfor
 
-for f in split(glob(new_rtp . '/plugins/*/*.vim'), '\n')
+for f in split(glob(g:new_rtp . '/plugins/*/*.vim'), '\n')
   exe 'source' f
 endfor
 
-exe 'source ' . new_rtp . '/autocmd.vim'
+exe 'source ' . g:new_rtp . '/autocmd.vim'
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 

@@ -4,6 +4,6 @@
 // ===========================================================================
     // Specifies whether advanced items that are not commonly used are displayed
     // in the AutoComplete list.
-  "svg.completion.showAdvanced": true,
+  "svg.completion.showAdvanced": true
 }
 // vim: ft=jsonc

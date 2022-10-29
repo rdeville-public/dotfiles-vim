@@ -4,27 +4,27 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 main(){
   setting="${SCRIPT_DIR}/coc-settings.json"
-  setting_base="${SCRIPT_DIR}/coc-settings.base.json"
-  setting_merge="${setting/json/merge.json}"
-  setting_tmp="${setting/json/tmp.json}"
 
-  mv "${setting}" "${setting}.bak"
-  cp "${setting_base}" "${setting_tmp}"
-  cp "${setting_base}" "${setting_merge}"
+  if [[ -f "${setting}" ]]
+  then
+    echo "Backup old coc-settings.json"
+    mv "${setting}" "${setting}.bak"
+  fi
 
-  for i_ext in "${SCRIPT_DIR}"/extensions/*/
+  echo "{" >> "${setting}"
+  for i_ext in "${SCRIPT_DIR}"/*.json
   do
-    setting="${i_ext}coc-settings.json"
-    if [[ -f "${setting}" ]]
+    if [[ "${i_ext}" != "${setting}" ]]
     then
-      jq -s '.[0] * .[1]' "${setting_merge}" "${setting}" > "${setting_tmp}"
-      cp "${setting_tmp}" "${setting_merge}"
+      echo "${i_ext}"
+      echo "$(sed -e "/^{/d" -e "/^}/d" -e "/.*vim: ft=.*/d" "${i_ext}")," >> "${setting}"
     fi
   done
-
-  cp "${setting_merge}" "${setting}"
-
-  rm "${setting_merge}" "${setting_tmp}"
+  sed -i "" "$ s/.$//" "${setting}"
+  echo "}" >> "${setting}"
+  echo "// vim: ft=jsonc" >> "${setting}"
 }
 
 main "$@"
+
+# vim: ft=sh
