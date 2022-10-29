@@ -1,324 +1,851 @@
 {
-  "suggest.enablePreselect": true,
-  "suggest.snippetsSupport": true,
-  "suggest.minTriggerInputLength": 3,
-  "suggest.noselect": false,
-  "suggest.completionItemKindLabels": {
-    "keyword": "",
-    "variable": "",
-    "value": "",
-    "operator": "Ψ",
-    "constructor": "",
-    "function": "ƒ",
-    "reference": "渚",
-    "constant": "",
-    "method": "",
-    "struct": "פּ",
-    "class": "",
-    "interface": "",
-    "text": "",
-    "enum": "",
-    "enumMember": "",
-    "module": "",
-    "color": "",
-    "property": "",
-    "field": "料",
-    "unit": "",
-    "event": "鬒",
-    "file": "",
-    "folder": "",
-    "snippet": "",
-    "typeParameter": "",
-    "default": ""
-  },
-  "diagnostic.highlighLimit": 100,
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.virtualTextPrefix": "   ",
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": " ",
-  "diagnostic.hintSign": " ",
-  "diagnostic.format": "[%source%code] [%severity]\n%message",
-  "diagnostic.separateRelatedInformationAsDiagnostics": false,
-  "signature.enable": true,
-  "signature.maxWindowWidth": 80,
-  "signature.triggerSignatureWait": 1000,
-  "signature.preferShownAbove": false,
-  "signature.hideOnTextChange": false,
-  "signature.maxWindowHeight": 15,
-  "refactor.saveToFile": false,
-  "hover.previewMaxHeight": 15,
-  "hover.floatMaxWidth": 80,
-  "hover.floatMaxHeight": 15,
-  "dialog.maxWidth": 80,
-  "dialog.maxHeight": 15,
+  // "css.enable": true,
+  // "css.trace.server": "off",
+  // "css.completion.triggerPropertyValueCompletion": true,
+  // "css.completion.completePropertyWithSemicolon": true,
+  // "css.validate": true,
+  // "css.colorDecorators.enable": true,
+  // "css.lint.compatibleVendorPrefixes": "ignore",
+  // "css.lint.vendorPrefix": "warning",
+  // "css.lint.duplicateProperties": "ignore",
+  // "css.lint.emptyRules": "warning",
+  // "css.lint.importStatement": "ignore",
+  // "css.lint.boxModel": "ignore",
+  // "css.lint.universalSelector": "ignore",
+  // "css.lint.zeroUnits": "ignore",
+  // "css.lint.fontFaceProperties": "warning",
+  // "css.lint.hexColorLength": "error",
+  // "css.lint.argumentsInColorFunction": "error",
+  // "css.lint.unknownProperties": "warning",
+  // "css.lint.ieHack": "ignore",
+  // "css.lint.unknownVendorSpecificProperties": "ignore",
+  // "css.lint.propertyIgnoredDueToDisplay": "warning",
+  // "css.lint.important": "ignore",
+  // "css.lint.float": "warning",
+  // "css.lint.idSelector": "warning",
+  // "css.lint.unknownAtRules": "warning",
+  // "languageserver": {
+  //   "bash": {
+  //     "command": "bash-language-server",
+  //     "args": [
+  //       "start"
+  //     ],
+  //     "filetypes": [
+  //       "sh"
+  //     ],
+  //     "ignoredRootPaths": [
+  //       "~"
+  //     ]
+  //   }
+  // },
+  // "explorer.mouseMode": "singleclick",
+  // "explorer.focus": false,
+  // "explorer.position": "left",
+  // "explorer.width": 15,
+  // "explorer.contentWidth": 80,
+  // "explorer.previewAction.onHover": false,
+  // "explorer.previewAction.content.maxHeight": 100,
+  // "explorer.openAction.strategy": "previousBuffer",
+  // "explorer.sources": [
+  //   {
+  //     "name": "bookmark",
+  //     "expand": true
+  //   },
+  //   {
+  //     "name": "buffer",
+  //     "expand": true
+  //   },
+  //   {
+  //     "name": "file",
+  //     "expand": true
+  //   }
+  // ],
+  // "explorer.enableFloatinput": true,
+  // "explorer.icon.enableNerdfont": true,
+  // "explorer.file.showHiddenFiles": true,
+  // "explorer.filename.colored.enable": true,
+  // "explorer.diagnostic.displayMax": 99,
+  // "explorer.diagnostic.enableSubscriptNumber": true,
+  // "explorer.git.enable": true,
+  // "explorer.git.command": "git",
+  // "explorer.git.icon.rootStatus.stashed": "$",
+  // "explorer.git.icon.rootStatus.ahead": "ﰵ",
+  // "explorer.git.icon.rootStatus.behind": "ﰬ",
+  // "explorer.git.icon.rootStatus.conflicted": "=",
+  // "explorer.git.icon.rootStatus.untracked": "?",
+  // "explorer.git.icon.rootStatus.modified": "-",
+  // "explorer.git.icon.rootStatus.added": "+",
+  // "explorer.git.icon.rootStatus.renamed": "➡",
+  // "explorer.git.icon.rootStatus.deleted": "✗",
+  // "explorer.git.icon.status.mixed": "✹",
+  // "explorer.git.icon.status.modified": "✹",
+  // "explorer.git.icon.status.added": "+",
+  // "explorer.git.icon.status.deleted": "-",
+  // "explorer.git.icon.status.renamed": "➡",
+  // "explorer.git.icon.status.copied": "",
+  // "explorer.git.icon.status.unmerged": "U",
+  // "explorer.git.icon.status.untracked": "?",
+  // "explorer.git.icon.status.ignored": " ",
+  // "explorer.git.showIgnored": true,
+  // "explorer.debug": false,
+  // "floatinput.enabled": true,
+  // "floatinput.status.enabled": true,
+  // "floatinput.status.timeout": 1000,
+  // "git.command": "git",
+  // "git.remoteName": "origin",
+  // "git.issueFormat": "#%i",
+  // "git.virtualTextPrefix": "\t\t\t\t\t\t            ",
+  // "git.addGBlameToVirtualText": false,
+  // "git.addGBlameToBufferVar": true,
+  // "git.blameUseRealTime": false,
+  // "git.branchCharacter": " ",
+  // "git.changedDecorator": "✹ ",
+  // "git.conflictedDecorator": "= ",
+  // "git.stagedDecorator": "+ ",
+  // "git.untrackedDecorator": "? ",
+  // "git.enableGlobalStatus": true,
+  // "git.enableGutters": true,
+  // "git.realtimeGutters": true,
+  // "git.signPriority": 10,
+  // "git.changedSign.text": "✹ ",
+  // "git.changedSign.hlGroup": "DiffChange",
+  // "git.addedSign.text": "+ ",
+  // "git.addedSign.hlGroup": "DiffAdd",
+  // "git.removedSign.text": "- ",
+  // "git.removedSign.hlGroup": "DiffDelete",
+  // "git.topRemovedSign.text": "‾ ",
+  // "git.topRemovedSign.hlGroup": "DiffDelete",
+  // "git.changeRemovedSign.text": "- ",
+  // "git.changeRemovedSign.hlGroup": "DiffChange",
+  // "git.semanticCommit.scope": true,
+  // "git.splitWindowCommand": "above sp",
+  // "git.showCommitInFloating": true,
+  // "git.gitlab.hosts": [
+  //   "framagit.org",
+  //   "gitlab.liris.cnrs.fr",
+  //   "gitlab.org",
+  //   "skyloud.dev"
+  // ],
+  // "git.urlFix": {
+  //   "gitlab.org": [
+  //     "blob|-/tree"
+  //   ],
+  //   "gitlab.liris.cnrs.fr": [
+  //     "blob|-/tree"
+  //   ],
+  //   "framagit.org": [
+  //     "blob|-/tree"
+  //   ]
+  // },
+  // "git.conflict.enabled": true,
+  // "git.conflict.current.hlGroup": "DiffChange",
+  // "html.enable": true,
+  // "html.execArgv": [],
+  // "html.trace.server": "off",
+  // "html.filetypes": [
+  //   "html",
+  //   "handlebars",
+  //   "htmldjango",
+  //   "blade"
+  // ],
+  // "html.format.enable": true,
+  // "html.format.wrapLineLength": 120,
+  // "html.format.unformatted": "wbr",
+  // "html.format.contentUnformatted": "pre,code,textarea",
+  // "html.format.indentInnerHtml": false,
+  // "html.format.preserveNewLines": true,
+  // "html.format.maxPreserveNewLines": null,
+  // "html.format.indentHandlebars": false,
+  // "html.format.endWithNewline": false,
+  // "html.format.extraLiners": "head, body, /html",
+  // "html.format.wrapAttributes": "auto",
+  // "html.suggest.angular1": true,
+  // "html.suggest.ionic": true,
+  // "html.suggest.html5": true,
+  // "html.validate.scripts": true,
+  // "html.validate.styles": true,
+  // "html.validate.html": true,
+  // "html.autoClosingTags": true,
+  // "html-css-support.enable": true,
+  // "html-css-support.enabledLanguages": [
+  //   "html"
+  // ],
+  // "html-css-support.styleSheets": [],
+  // "jedi.enable": true,
+  // "jedi.startupMessage": false,
+  // "jedi.markupKindPreferred": "markdown",
+  // "jedi.trace.server": "off",
+  // "jedi.jediSettings.autoImportModules": [],
+  // "jedi.jediSettings.caseInsensitiveCompletion": true,
+  // "jedi.executable.args": [],
+  // "jedi.codeAction.nameExtractFunction": "jls_extract_def",
+  // "jedi.codeAction.nameExtractVariable": "jls_extract_var",
+  // "jedi.completion.disableSnippets": false,
+  // "jedi.completion.resolveEagerly": false,
+  // "jedi.diagnostics.enable": true,
+  // "jedi.diagnostics.didOpen": true,
+  // "jedi.diagnostics.didChange": true,
+  // "jedi.diagnostics.didSave": true,
+  // "jedi.hover.enable": true,
+  // "jedi.workspace.extraPaths": [],
+  // "jedi.workspace.symbols.maxSymbols": 20,
+  // "jedi.workspace.symbols.ignoreFolders": [
+  //   ".nox",
+  //   ".tox",
+  //   ".venv",
+  //   "__pycache__",
+  //   "venv",
+  //   ".direnv"
+  // ],
+  // "json.enable": true,
+  // "json.format.enable": true,
+  // "json.maxItemsComputed": 5000,
+  // "json.schemaDownload.enable": true,
+  // "session.directory": "~/.config/vim/.sessions",
+  // "session.restartOnSessionLoad": true,
+  // "session.saveOnVimLeave": true,
+  // "list.source.mru.excludePatterns": [
+  //   "**/.git/*",
+  //   "/tmp/*",
+  //   "**/tmp/*",
+  //   "**/.direnv/*",
+  //   "**/.tox"
+  // ],
+  // // "markdownlint.onOpen": true,
+  // // "markdownlint.onSave": true,
+  // // "markdownlint.onChange": false,
+  // // "markdownlint.config": {
+  // //   "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+  // //   "MD001": true,
+  // //   "heading-increment": true,
+  // //   "header-increment": true,
+  // //   "MD002": true,
+  // //   "first-heading-h1": true,
+  // //   "first-header-h1": true,
+  // //   "MD003": true,
+  // //   "heading-style": true,
+  // //   "header-style": true,
+  // //   "MD004": true,
+  // //   "ul-style": true,
+  // //   "MD005": true,
+  // //   "list-indent": true,
+  // //   "MD006": false,
+  // //   "ul-start-left": false,
+  // //   "MD007": {
+  // //     "indent": 2,
+  // //     "start_indented": true
+  // //   },
+  // //   "ul-indent": {
+  // //     "indent": 2,
+  // //     "start_indented": true
+  // //   },
+  // //   "MD009": true,
+  // //   "no-trailing-spaces": true,
+  // //   "MD010": true,
+  // //   "no-hard-tabs": true,
+  // //   "MD011": true,
+  // //   "no-reversed-links": true,
+  // //   "MD012": true,
+  // //   "no-multiple-blanks": true,
+  // //   "MD013": {
+  // //     "line_length": 80,
+  // //     "heading_line_length": 80,
+  // //     "code_block_line_length": 80,
+  // //     "code_blocks": true,
+  // //     "tables": false,
+  // //     "headings": true,
+  // //     "headers": true,
+  // //     "strict": false,
+  // //     "stern": false
+  // //   },
+  // //   "line-length": {
+  // //     "line_length": 80,
+  // //     "heading_line_length": 80,
+  // //     "code_block_line_length": 80,
+  // //     "code_blocks": true,
+  // //     "tables": false,
+  // //     "headings": true,
+  // //     "headers": true,
+  // //     "strict": false,
+  // //     "stern": false
+  // //   },
+  // //   "MD014": true,
+  // //   "commands-show-output": true,
+  // //   "MD018": true,
+  // //   "no-missing-space-atx": true,
+  // //   "MD019": true,
+  // //   "no-multiple-space-atx": true,
+  // //   "MD020": true,
+  // //   "no-missing-space-closed-atx": true,
+  // //   "MD021": true,
+  // //   "no-multiple-space-closed-atx": true,
+  // //   "MD022": {
+  // //     "lines_above": 1,
+  // //     "lines_below": 1
+  // //   },
+  // //   "blanks-around-headings": {
+  // //     "lines_above": 1,
+  // //     "lines_below": 1
+  // //   },
+  // //   "blanks-around-headers": {
+  // //     "lines_above": 1,
+  // //     "lines_below": 1
+  // //   },
+  // //   "MD023": true,
+  // //   "header-start-left": true,
+  // //   "MD024": {
+  // //     "allow_different_nesting": false,
+  // //     "siblings_only": false
+  // //   },
+  // //   "no-duplicate-heading": {
+  // //     "allow_different_nesting": false,
+  // //     "siblings_only": false
+  // //   },
+  // //   "no-duplicate-header": {
+  // //     "allow_different_nesting": false,
+  // //     "siblings_only": false
+  // //   },
+  // //   "MD025": true,
+  // //   "single-title": true,
+  // //   "single-h1": true,
+  // //   "MD026": true,
+  // //   "no-trailing-punctuation": true,
+  // //   "MD027": true,
+  // //   "no-multiple-space-blockquote": true,
+  // //   "MD028": true,
+  // //   "no-blanks-blockquote": true,
+  // //   "MD029": true,
+  // //   "ol-prefix": true,
+  // //   "MD030": true,
+  // //   "list-marker-space": true,
+  // //   "MD031": true,
+  // //   "blanks-around-fences": true,
+  // //   "MD032": true,
+  // //   "blanks-around-lists": true,
+  // //   "MD033": false,
+  // //   "no-inline-html": false,
+  // //   "MD034": true,
+  // //   "no-bare-urls": true,
+  // //   "MD035": true,
+  // //   "hr-style": true,
+  // //   "MD036": true,
+  // //   "no-emphasis-as-heading": true,
+  // //   "no-emphasis-as-header": true,
+  // //   "MD037": true,
+  // //   "no-space-in-emphasis": true,
+  // //   "MD038": true,
+  // //   "no-space-in-code": true,
+  // //   "MD039": true,
+  // //   "no-space-in-links": true,
+  // //   "MD040": true,
+  // //   "fenced-code-language": true,
+  // //   "MD041": true,
+  // //   "first-line-heading": true,
+  // //   "first-line-h1": true,
+  // //   "MD042": true,
+  // //   "no-empty-links": true,
+  // //   "MD043": true,
+  // //   "required-headings": true,
+  // //   "required-headers": true,
+  // //   "MD044": true,
+  // //   "proper-names": true,
+  // //   "MD045": true,
+  // //   "no-alt-text": true,
+  // //   "MD046": true,
+  // //   "code-block-style": true,
+  // //   "MD047": true,
+  // //   "single-trailing-newline": true,
+  // //   "MD048": true,
+  // //   "code-fence-style": true
+  // // },
+  // "nginx.enable": true,
+  // "nginx.nginxfmt.indent": 4,
+  // "nginx.server.commandPath": "/home/rdeville/.local/bin/nginx-language-server",
+  // "pydocstring.enable": true,
+  // "pydocstring.formatter": "google",
+  // "pydocstring.ignoreException": false,
+  // "pydocstring.ignoreYield": false,
+  // "pydocstring.enableFileAction": true,
+  // "sh.enable": true,
+  // "sh.explainshellEndpoint": "",
+  // "sh.globPattern": "",
+  // "sh.highlightParsingErrors": true,
+  // "sh.trace.server": "off",
+  // "snippets.priority": 90,
+  // "snippets.trace": "error",
+  // "snippets.enableStatusItem": true,
+  // "snippets.loadFromExtensions": true,
+  // "snippets.shortcut": "S",
+  // "snippets.autoTrigger": true,
+  // "snippets.ultisnips.enable": true,
+  // "snippets.ultisnips.usePythonx": true,
+  // "snippets.ultisnips.pythonVersion": 3,
+  // "snippets.ultisnips.directories": [
+  //   "UltiSnips"
+  // ],
+  // "snippets.snipmate.enable": true,
+  // "snippets.snipmate.author": "R. Deville",
+  // "snippets.triggerCharacters": [
+  //   "<TAB>"
+  // ],
+  // "svg.completion.insertCloseTagSign": true,
+  // "svg.completion.showAdvanced": false,
+  // "svg.completion.showDeprecated": false,
+  // "svg.disableFormatOnSave": false,
+  // "svg.preview.background": "transparent",
+  // "svg.preview.backgroundCustom": "#eee",
+  // "svg.version": "1.1",
+  // "svg.priority": 99,
+  // "texlab.trace.server": "off",
+  // "texlab.rootDirectory": null,
+  // "texlab.build.executable": "latexmk",
+  // "texlab.build.args": [
+  //   "-pdf",
+  //   "-interaction=nonstopmode",
+  //   "-synctex=1",
+  //   "%f"
+  // ],
+  // "texlab.build.onSave": false,
+  // "texlab.build.forwardSearchAfter": false,
+  // "texlab.auxDirectory": ".",
+  // "texlab.forwardSearch.executable": null,
+  // "texlab.forwardSearch.args": [],
+  // "texlab.chktex.onOpenAndSave": false,
+  // "texlab.chktex.onEdit": false,
+  // "texlab.bibtexFormatter": "texlab",
+  // "texlab.formatterLineLength": 80,
+  // "texlab.latexFormatter": "latexindent",
+  // "texlab.latexindent.local": null,
+  // "texlab.latexindent.modifyLineBreaks": false,
+  // "toml.enabled": true,
+  // "toml.activationStatus": true,
+  // "toml.taploConfigEnabled": true,
+  // "toml.semanticTokens": false,
+  // "toml.commands.clearCache": true,
+  // "toml.commands.downloadSchemas": true,
+  // "toml.commands.copyTomlAsJson": true,
+  // "toml.commands.pasteTomlAsJson": true,
+  // "toml.commands.copyJsonAsToml": true,
+  // "toml.commands.pasteJsonAsToml": true,
+  // "toml.formatter.alignEntries": true,
+  // "toml.formatter.arrayTrailingComma": true,
+  // "toml.formatter.arrayAutoExpand": true,
+  // "toml.formatter.arrayAutoCollapse": true,
+  // "toml.formatter.compactArrays": true,
+  // "toml.formatter.compactInlineTables": false,
+  // "toml.formatter.columnWidth": 80,
+  // "toml.formatter.indentTables": false,
+  // "toml.formatter.reorderKeys": false,
+  // "toml.formatter.allowedBlankLines": 1,
+  // "toml.formatter.trailingNewline": false,
+  // "toml.formatter.crlf": false,
+  // "toml.schema.enabled": true,
+  // "toml.schema.links": false,
+  // "toml.schema.repositoryEnabled": true,
+  // "toml.schema.repositoryUrl": "https://taplo.tamasfe.dev/schema_index.json",
+  // "toml.schema.associations": {
+  //   "^(.*(/|\\\\)\\.?taplo\\.toml|\\.?taplo\\.toml)$": "taplo://taplo.toml"
+  // },
+  // "toml.actions.ignoreDeprecatedAssociations": true,
+  // "toml.debug": false,
+  // "vimlsp.debug": false,
+  // "vimlsp.filetypes": [
+  //   "vim"
+  // ],
+  // "vimlsp.diagnostic.enable": true,
+  // "vimlsp.indexes.runtimepath": true,
+  // "vimlsp.indexes.count": 1,
+  // "vimlsp.indexes.gap": 100,
+  // "vimlsp.indexes.projectRootPatterns": [
+  //   "init.vim",
+  //   "vimrc",
+  //   ".git"
+  // ],
+  // "vimlsp.suggest.fromVimruntime": true,
+  // "vimlsp.trace.server": "off",
+// CoC
+// Source: https://github.com/neoclide/coc.nvim
+// ===========================================================================
+  // CoC - Preferences
+  // -------------------------------------------------------------------------
+    // Linked editing feature enables editing multiple linked ranges at the same
+    // time, for example: html tags.
+  "coc.preferences.enableLinkedEditing": true,
+    // Enable messages shown in notification dialog.
+  "coc.preferences.enableMessageDialog": true,
+    // Filetypes that should run format on save.
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "json",
+    "terraform"
+  ],
+    // Root patterns to resolve workspaceFolder from parent folders of opened
+    // files, resolved from up to down.
   "coc.preferences.rootPatterns": [
     "pyproject.toml",
     ".git",
     ".hg",
     ".projections.json"
   ],
-  "coc.preferences.enableMarkdown": true,
-  "coc.preferences.useQuickfixForLocations": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "json"
-  ],
-  "coc.preferences.willSaveHandlerTimeout": 1000,
-  "css.enable": true,
-  "css.trace.server": "off",
-  "css.completion.triggerPropertyValueCompletion": true,
-  "css.completion.completePropertyWithSemicolon": true,
-  "css.validate": true,
-  "css.colorDecorators.enable": true,
-  "css.lint.compatibleVendorPrefixes": "ignore",
-  "css.lint.vendorPrefix": "warning",
-  "css.lint.duplicateProperties": "ignore",
-  "css.lint.emptyRules": "warning",
-  "css.lint.importStatement": "ignore",
-  "css.lint.boxModel": "ignore",
-  "css.lint.universalSelector": "ignore",
-  "css.lint.zeroUnits": "ignore",
-  "css.lint.fontFaceProperties": "warning",
-  "css.lint.hexColorLength": "error",
-  "css.lint.argumentsInColorFunction": "error",
-  "css.lint.unknownProperties": "warning",
-  "css.lint.ieHack": "ignore",
-  "css.lint.unknownVendorSpecificProperties": "ignore",
-  "css.lint.propertyIgnoredDueToDisplay": "warning",
-  "css.lint.important": "ignore",
-  "css.lint.float": "warning",
-  "css.lint.idSelector": "warning",
-  "css.lint.unknownAtRules": "warning",
-  "languageserver": {
-    "dls": {
-      "command": "diagnostic-languageserver",
-      "args": [
-        "--stdio",
-        "--log-level",
-        "2"
-      ],
-      "filetypes": [
-        "python"
-      ]
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": [
-        "start"
-      ],
-      "filetypes": [
-        "sh"
-      ],
-      "ignoredRootPaths": [
-        "~"
-      ]
-    }
+  // CoC - Native Sources : Around (Current File)
+  // -------------------------------------------------------------------------
+  "coc.source.around.enable": true,
+  "coc.source.around.priority": 1,
+  "coc.source.around.shortcut": " ",
+  // CoC - Native Sources : Buffer (Opened Buffers)
+  // -------------------------------------------------------------------------
+  "coc.source.buffer.enable": true,
+  "coc.source.buffer.priority": 1,
+  "coc.source.buffer.shortcut": " ",
+  // CoC - Native Sources : Buffer (Opened Buffers)
+  // -------------------------------------------------------------------------
+  "coc.source.file.enable": true,
+  "coc.source.file.priority": 10,
+  "coc.source.file.shortcut": " ",
+  // CoC - Diagnostic
+  // -------------------------------------------------------------------------
+    // Set to false to disable diagnostic display.
+  "diagnostic.enable": true,
+    // Text of error,warning,hing & info sign.
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.hintSign": " ",
+    // Configuration of floating window/popup for diagnostic messages, see
+    // |coc-config-float|.
+  "diagnostic.floatConfig": {
+    "title": "ﯭ Diagnostic",
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true
   },
-  "diagnostic-languageserver.enable": true,
+    // Define the diagnostic format that shown in float window or echoed,
+    // available parts: source, code, severity, message.
+  "diagnostic.format": "[%source%code][%severity]\n%message",
+    // Limit count for highlighted diagnostics, too many diagnostic highlights
+    // could make vim stop responding.
+  "diagnostic.highlightLimit": 100,
+    // Use virtual text to display diagnostics, requires neovim >= 0.5.0 or
+    // vim >= 9.0.0067.
+  "diagnostic.virtualText": true,
+    // Define the virtual text diagnostic format, available parts: source, code,
+    // severity, message.
+  "diagnostic.virtualTextFormat": "%severity - %message",
+    // The prefix added virtual text diagnostics.
+  "diagnostic.virtualTextPrefix": " ",
+    // Configure default float window/popup style created by float factory
+  // CoC - FloatFactory
+  // -------------------------------------------------------------------------
+    // (created around cursor and automatically closed), properties of
+    // |coc-config-float| are used.
+  "floatFactory.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true,
+    "shadow": false,
+    "title": "",
+    "winblend": 0
+  },
+  // CoC - List
+  // -------------------------------------------------------------------------
+    // Whether to align lists in columns.
+  "list.alignColumns": true,
+    // Height of split list window.
+  "list.height": 15,
+    // The character used as first character in prompt line.
+  "list.indicator": " ﬌ ",
+    // Max height for preview window of list.
+  "list.maxPreviewHeight": 25,
+    // Sign text for selected lines.
+  "list.selectedSignText": "",
+    // An array of statusline segments that will be used to draw the status
+    // line for list windows.
+  "list.statusLineSegments": [
+    "%#CocListMode# %{coc#list#status(\"mode\")}",
+    "%#CocListModeToNumber#",
+    "%#CocListNumber#",
+    "[%{coc#list#status(\"total\")}] %l/%L",
+    "%#CocListNumberToInfo#",
+    "%{coc#list#status(\"loading\")} %{coc#list#status(\"args\")}"
+  ],
+    // Show progress notification in status line, instead of use float
+    // window/popup.
+  "notification.statusLineProgress": false,
+  // CoC - Outline
+  // -------------------------------------------------------------------------
+    // Expand level of tree nodes.
+  "outline.expandLevel": 5,
+    // Default sort method for symbols outline, available are 'category',
+    // 'position' and 'name'.
+  "outline.sortBy": "category",
+  // CoC - Semantic Tokens
+  // -------------------------------------------------------------------------
+    // Enable semantic tokens support.
+  "semanticTokens.enable": true,
+  // CoC - Signature
+  // -------------------------------------------------------------------------
+    // Configuration of floating window/popup for signature documents, see
+    // |coc-config-float|.
+  "signature.floatConfig": {
+    "title": " Signature",
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true,
+    "shadow": false
+  },
+  // CoC - Snippet
+  // -------------------------------------------------------------------------
+    // Use highlight group 'CocSnippetVisual' to highlight placeholders with
+    // same index of current one.
+  "snippet.highlight": true,
+    // Text shown in statusline to indicate snippet session is activated.
+  "snippet.statusText": "  Snippet",
+  // CoC - Suggets
+  // -------------------------------------------------------------------------
+    // Set custom labels to completion items' kinds.
+  "suggest.completionItemKindLabels": {
+    // NerdFont Char
+    "text": "",
+    "method": "",
+    "function": "ƒ",
+    "constructor": "",
+    "field": "料",
+    "variable": "",
+    "class": "",
+    "interface": "",
+    "module": "",
+    "property": "",
+    "unit": "",
+    "value": "",
+    "enum": "",
+    "keyword": "",
+    "snippet": "",
+    "color": "",
+    "file": "",
+    "reference": "渚",
+    "folder": "",
+    "enumMember": "",
+    "constant": "",
+    "struct": "פּ",
+    "event": "鬒",
+    "operator": "Ψ",
+    "typeParameter": "",
+    "default": ""
+  },
+    // Default sorting behavior when trigger is empty, could be `"length"`,
+    // `"alphabetical"` or `"none"`.
+  "suggest.defaultSortMethod": "alphabetical",
+    // Configuration of floating window/popup for signature documents, see
+    // |coc-config-float|.
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "shadow": false
+  },
+    // Items shown in popup menu in order.
+  "suggest.formatItems": ["shortcut","kind", "abbr","menu"],
+    // Configure style of popup menu, |coc-config-suggest-floatConfig| is
+    // used when not specified, see |coc-config-float|.
+  "suggest.pumFloatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "shadow": false
+  },
+    // The character used in abbr of complete item to indicate the item could
+    // be expand as snippet.
+  "suggest.snippetIndicator": " ﱟ",
+  // CoC - Tree -------------------------------------------------------------------------
+    // Open and closed icon of tree view.
+  "tree.closedIcon": "",
+  "tree.openedIcon": "",
+// CoC - Diagnostic
+// Source: https://github.com/iamcco/coc-diagnostic/
+// ===========================================================================
+    // To enable this plugin for filetypes you have to config
+    // diagnostic-languageserver.filetypes for linters and
+    // diagnostic-languageserver.formatFiletypes for formatters.
+
+    // If mergeConfig is true (default false) then any configuration for linters
+    // and formatters is merged with the default configuration, this allow
+    // overriding specific parts of the configuration only.
   "diagnostic-languageserver.mergeConfig": true,
+    // Enable debug
+  "diagnostic-languageserver.debug": true,
+    // "Trace level of diagnostic-languageserver"
+  "diagnostic-languageserver.trace.server": "verbose",
+    //  Default available linters for below diagnostic-languageserver.filetypes
+    //   - eslint
+    //   - shellcheck
+    //   - write-good
+    //   - vint
+    //   - languagetool
+    //   - markdownlint
+    //   - phpcs
+    //   - mix_credo
+    //   - mix_credo_compile
+    //   - stylelint
+    //   - standard
+    //   - hadolint
+    //   - golangci-lint
+    //   - revive
+    //   - phpstan
+    //   - psalm
+    //   - tidy
+    //   - nix-linter
+    //   - yamllint
+    //   - fish
+    //   - textidote
+    //   - hlint
+    //   - pylint
+    //   - mypy
+    //   - cpplint
+    //   - xo
+    //   - flake8
+    //   - ansibleLint
+    //   - proselint
+    //   - luacheck
+    //   - cmakelint
+    //   - cmake-lint
+    //   - systemd-analyze
+    // Filetypes config same as diagnostic-languageserver's filetypes config
   "diagnostic-languageserver.filetypes": {
-    "sh": [
-      "shellcheck"
-    ],
-    "vim": [
-      "vint"
-    ],
-    "cpp": [
-      "cpplint"
-    ],
-    "dockerfile": [
-      "hadolint"
-    ],
-    "css": [
-      "stylelint"
-    ],
-    "html": [
-      "tidy"
-    ],
-    "tex": [
-      "textidote"
-    ],
+    "sh": "shellcheck",
+    "vim": "vint",
+    "cpp": "cpplint",
+    "dockerfile": "hadolint",
+    "css": "stylelint",
+    "html": "tidy",
+    "tex": "textidote",
     "python": [
       "pylint",
-      "flake8"
+      "flake8",
+      "mypy"
     ],
+    "lua": "luacheck",
     "markdown": [
       "write-good",
-      "markdownlint",
-      "languagetool"
+      "markdownlint"
     ],
     "vimwiki": [
       "write-good",
-      "markdownlint",
-      "languagetool"
+      "markdownlint"
     ],
     "vimwiki.jinja2": [
       "write-good",
-      "markdownlint",
-      "languagetool"
+      "markdownlint"
     ],
     "vimwiki.markdown": [
       "write-good",
-      "markdownlint",
-      "languagetool"
+      "markdownlint"
     ],
     "markdown.vimwiki": [
       "write-good",
-      "markdownlint",
-      "languagetool"
+      "markdownlint"
+    ],
+    "javascript": [
+      "eslint"
+    ],
+    "javascript.html": [
+      "eslint"
     ]
   },
+    //  Default available formatter for below diagnostic-languageserver.formatFiletypes
+    //   - dartfmt
+    //   - mix_format
+    //   - stylelint
+    //   - standard
+    //   - lua-format
+    //   - shfmt
+    //   - tffmt
+    //   - blade-formatter
+    //   - nixfmt
+    //   - fish_indent
+    //   - prettier
+    //   - prettier_eslint
+    //   - xo
+    //   - black
+    //   - autopep8
+    //   - yapf
+    //   - isort
+    //   - gofmt
+    //   - cmake-format
+  // Formatters config same as diagnostic-languageserver's formatters config
   "diagnostic-languageserver.formatFiletypes": {
-    "sh": [
-      "shfmt"
-    ],
-    "css": [
-      "stylelint"
-    ],
-    "yaml": [
-      "prettier"
-    ],
-    "json": [
-      "prettier"
-    ],
-    "html": [
-      "prettier"
-    ]
+    "sh": "shfmt",
+    "css": "stylelint",
+    "json": "prettier",
+    "jsonc": "prettier",
+    "html": "prettier",
+    "python":["isort","black"]
   },
-  "diagnostic-languageserver.linters": {
-    "shellcheck": {
-      "command": "shellcheck",
-      "debounce": 100,
-      "args": [
-        "--format=gcc",
-        "-x",
-        "-"
-      ],
-      "offsetLine": 0,
-      "offsetColumn": 0,
-      "sourceName": "shellcheck",
-      "formatLines": 1,
-      "formatPattern": [
-        "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-        {
-          "line": 1,
-          "column": 2,
-          "message": 4,
-          "security": 3
-        }
-      ],
-      "securities": {
-        "error": "error",
-        "warning": "warning",
-        "note": "info"
+// CoC - Lists
+// Source: https://github.com/neoclide/coc-lists/
+// ===========================================================================
+    // Save session on VimLeavePre., default to true
+  "session.saveOnVimLeave": false,
+    // Restart vim with cwd changed on session load, support neovim on iTerm2 only.
+  "session.restartOnSessionLoad": false,
+    // List names to disable form load.
+  "lists.disabledLists": [
+    "buffers",       // Current buffer list.
+    "changes",       // Changes list.
+    "files",         // Search files from current cwd.
+    "helptags",      // Helptags of vim.
+    "locationlist",  // Items from vim's location list.
+    "marks",         // Marks of vim.
+    "mru",           // Most recent used files.
+    "quickfix",      // Items from vim's quickfix list.
+    "registers",     // Registers of vim.
+    "searchhistory", // History of search.
+    "sessions",      // Session list.
+    "tags",          // Search tag files.
+    "windows"        // Windows of vim.
+  ],
+// CoC - Explorer
+// Source: https://github.com/weirongxu/coc-explorer/
+// ===========================================================================
+    // Content width, use negative value or zero to as `width - value`.
+  "explorer.width": 15,
+    // Content width, use negative value or zero to as `width - value`.
+  "explorer.contentWidth": 75,
+    // Preview content maximum height.
+  "explorer.previewAction.content.maxHeight": 100,
+    // Strategy for open action.
+  "explorer.openAction.strategy": "select",
+    // Filter windows for select strategy.
+  "explorer.openAction.select.filter": {
+    "buftypes": [
+      "terminal"
+    ],
+    "filetypes": [
+      "vista_kind",
+      "qf",
+      "tagbar",
+      "coctree"
+    ],
+    "floatingWindows": true,
+    "sources": {
+      "buffer": {
+        "buftypes": []
       }
-    },
-    "pylint": {
-      "sourceName": "pylint",
-      "command": "pylint",
-      "args": [
-        "--output-format",
-        "text",
-        "--score",
-        "no",
-        "--msg-template",
-        "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
-        "%file"
-      ],
-      "formatPattern": [
-        "^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
-        {
-          "line": 1,
-          "column": 2,
-          "security": 3,
-          "message": 4
-        }
-      ],
-      "rootPatterns": [
-        "pyproject.toml",
-        ".git",
-        "setup.py"
-      ],
-      "securities": {
-        "informational": "hint",
-        "refactor": "info",
-        "convention": "info",
-        "warning": "warning",
-        "error": "error",
-        "fatal": "error"
-      },
-      "offsetColumn": 1,
-      "formatLines": 1
-    },
-    "flake8": {
-      "sourceName": "flake8",
-      "command": "flake8",
-      "debounce": 200,
-      "rootPatterns": [
-        "pyproject.toml",
-        ".git",
-        "setup.py"
-      ],
-      "args": [
-        "--ignore=E121,E123,E126,E226,E24,E704,W503,E501",
-        "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
-        "--max-line-length=80",
-        "-"
-      ],
-      "offsetLine": 0,
-      "offsetColumn": 0,
-      "formatLines": 1,
-      "formatPattern": [
-        "(\\d+),(\\d+),([A-Z]),(.*)(\\r|\\n)*$",
-        {
-          "line": 1,
-          "column": 2,
-          "security": 3,
-          "message": 4
-        }
-      ],
-      "securities": {
-        "W": "info",
-        "E": "warning",
-        "F": "info",
-        "C": "info",
-        "N": "hint"
-      }
-    },
-    "markdownlint": {
-      "command": "markdownlint",
-      "isStderr": true,
-      "debounce": 100,
-      "args": [
-        "--stdin"
-      ],
-      "offsetLine": 0,
-      "offsetColumn": 0,
-      "sourceName": "markdownlint",
-      "formatLines": 1,
-      "formatPattern": [
-        "^.*?:\\s?(\\d+)(:(\\d+)?)?\\s(MD\\d{3}\\/[A-Za-z0-9-/]+)\\s(.*)$",
-        {
-          "line": 1,
-          "column": 3,
-          "message": [
-            4
-          ]
-        }
-      ]
     }
   },
-  "explorer.mouseMode": "singleclick",
-  "explorer.focus": false,
-  "explorer.position": "left",
-  "explorer.width": 15,
-  "explorer.contentWidth": 80,
-  "explorer.previewAction.onHover": false,
-  "explorer.previewAction.content.maxHeight": 100,
-  "explorer.openAction.strategy": "previousBuffer",
-  "explorer.sources": [
+  // Explorer sources.
+  "explorer.sources":
+  [
     {
       "name": "bookmark",
       "expand": true
@@ -332,71 +859,143 @@
       "expand": true
     }
   ],
-  "explorer.enableFloatinput": true,
+    // Enable integrated with coc-floatinput.
+  "explorer.enableFloatinput": false,
+    //  Maximum count of diagnostic column.
+  "explorer.diagnostic.displayMax": 9,
+    // Enable nerdfont
   "explorer.icon.enableNerdfont": true,
+    // The source or file type icon and color.
+  "explorer.icon.source": "vim-devicons",
+    // Selection selected chars for File source.
+  "explorer.icon.selected": "✓",
+    // Icon for hidden status.
+  "explorer.icon.hidden": "‥",
+    // Icon for soft link.
+  "explorer.icon.link": "→",
+    // Icon for readonly.
+  "explorer.icon.readonly": "",
+    // Default show hidden buffers.
+  "explorer.buffer.showHiddenBuffers": true,
+    // Template for root node of buffer source.
+  "explorer.buffer.root.template": "[icon] [title] [hidden & 1]",
+    // Template for child node of buffer source.
+  "explorer.buffer.child.template": "[selection | 1][readonly | 1][name][modified]",
+    // Explorer will automatically reveal to the current buffer when open explorer.
+  "explorer.file.reveal.whenOpen": true,
+    // Explorer will automatically reveal to the current buffer when enter a buffer.
+  "explorer.file.reveal.auto": false,
+    // Default show hidden files.
   "explorer.file.showHiddenFiles": true,
-  "explorer.filename.colored.enable": true,
-  "explorer.diagnostic.displayMax": 99,
-  "explorer.diagnostic.enableSubscriptNumber": true,
+    // Template for root node of file source.
+  "explorer.file.root.template": "[icon]  [title] [hidden & 1][root] [fullpath]",
+    // Template for child node file source.
+  "explorer.file.child.template": "[git | 2][selection | clip | 1][diagnosticError | diagnosticWarning | 1][indent][icon | 1] [filename omitCenter 1][modified][readonly]",
+    // Whether to display the alignment line.
+  "explorer.file.column.indent.indentLine": true,
+    // Enable git.
   "explorer.git.enable": true,
+    // Git command.
   "explorer.git.command": "git",
+    // Icon for a stash exists for the local repository.
   "explorer.git.icon.rootStatus.stashed": "$",
-  "explorer.git.icon.rootStatus.ahead": "ﰵ",
-  "explorer.git.icon.rootStatus.behind": "ﰬ",
-  "explorer.git.icon.rootStatus.conflicted": "=",
-  "explorer.git.icon.rootStatus.untracked": "?",
-  "explorer.git.icon.rootStatus.modified": "-",
-  "explorer.git.icon.rootStatus.added": "+",
-  "explorer.git.icon.rootStatus.renamed": "➡",
-  "explorer.git.icon.rootStatus.deleted": "✗",
+    // Icon for current branch ahead of upstream.
+  "explorer.git.icon.rootStatus.ahead": "⬆️",
+    // Icon for current branch behind upstream.
+  "explorer.git.icon.rootStatus.behind": "⬇️",
+    // Icon for current branch has merge conflicts.
+  "explorer.git.icon.rootStatus.conflicted": "",
+    // Icon for there are untracked files in the working directory.
+  "explorer.git.icon.rootStatus.untracked": "",
+    // Icon for there are file modifications in the working directory.
+  "explorer.git.icon.rootStatus.modified": "",
+    // Icon for a new file has been added to the staging area.
+  "explorer.git.icon.rootStatus.added": "",
+    // Icon for a renamed file has been added to the staging area.
+  "explorer.git.icon.rootStatus.renamed": "",
+    // Icon for a file's deletion has been added to the staging area.
+  "explorer.git.icon.rootStatus.deleted": "",
+    // Icon for git mixed status.
   "explorer.git.icon.status.mixed": "✹",
-  "explorer.git.icon.status.modified": "✹",
-  "explorer.git.icon.status.added": "+",
-  "explorer.git.icon.status.deleted": "-",
-  "explorer.git.icon.status.renamed": "➡",
+    // Icon for git unmodified status.
+  "explorer.git.icon.status.unmodified": " ",
+    // Icon for git modified status.
+  "explorer.git.icon.status.modified": "",
+    // Icon for git added status.
+  "explorer.git.icon.status.added": "",
+    // Icon for git removed status.
+  "explorer.git.icon.status.deleted": "",
+    // Icon for git renamed status.
+  "explorer.git.icon.status.renamed": "",
+    // Icon for git copied status.
   "explorer.git.icon.status.copied": "",
+    // Icon for git unmerged status.
   "explorer.git.icon.status.unmerged": "U",
-  "explorer.git.icon.status.untracked": "?",
+    // Icon for git untracked status.
+  "explorer.git.icon.status.untracked": "",
+    // Icon for git ignored status.
   "explorer.git.icon.status.ignored": " ",
+    // Show ignored files in git.
   "explorer.git.showIgnored": true,
-  "explorer.debug": false,
-  "floatinput.enabled": true,
-  "floatinput.status.enabled": true,
-  "floatinput.status.timeout": 1000,
-  "git.command": "git",
-  "git.remoteName": "origin",
-  "git.issueFormat": "#%i",
-  "git.virtualTextPrefix": "            ",
-  "git.addGBlameToVirtualText": false,
-  "git.addGBlameToBufferVar": true,
-  "git.blameUseRealTime": false,
-  "git.branchCharacter": " ",
-  "git.changedDecorator": "✹ ",
-  "git.conflictedDecorator": "= ",
-  "git.stagedDecorator": "+ ",
-  "git.untrackedDecorator": "? ",
-  "git.enableGlobalStatus": true,
-  "git.enableGutters": true,
-  "git.realtimeGutters": true,
-  "git.signPriority": 10,
-  "git.changedSign.text": "✹ ",
+// CoC - Git
+// Source: https://github.com/neoclide/coc-git
+// ===========================================================================
+    // Formatting string for issue completion. Supported interpolation variables
+    //   - %i: issue id.
+    //   - %r: repository name.
+    //   - %o: organization/owner name.
+    //   - %t: issue title.
+    //   - %b: issue body.
+    //   - %c: issue created at.
+    //   - %a: issue author.
+    //   - %u: issue url.
+    // default : "#%i"
+  "git.issueFormat": "#%i - %t",
+    // Branch character used with g:coc_git_status
+  "git.branchCharacter": "",
+    // Git changed decorator used with g:coc_git_status
+  "git.changedDecorator": "✹",
+    // Git conflicted decorator used with g:coc_git_status
+  "git.conflictedDecorator": "=",
+    // Git staged decorator used with g:coc_git_status
+  "git.stagedDecorator": "",
+    // Git untracked decorator used with g:coc_git_status
+  "git.untrackedDecorator": "",
+    // Text of changed sign.
+  "git.changedSign.text": "✹",
+    // Highlight group for changed sign.
   "git.changedSign.hlGroup": "DiffChange",
-  "git.addedSign.text": "+ ",
+    //Text of added sign.
+  "git.addedSign.text": "",
+    // Highlight group for added sign.
   "git.addedSign.hlGroup": "DiffAdd",
-  "git.removedSign.text": "- ",
+   // Text of removed sign.
+  "git.removedSign.text" : "",
+   // Highlight group for removed sign., default
   "git.removedSign.hlGroup": "DiffDelete",
-  "git.topRemovedSign.text": "‾ ",
+    // Text of top removed sign.
+  "git.topRemovedSign.text": "!",
+    // Highlight group for top removed sign.,
   "git.topRemovedSign.hlGroup": "DiffDelete",
-  "git.changeRemovedSign.text": "- ",
+    // Text of change removed sign.
+  "git.changeRemovedSign.text": "✹",
+    // Highlight group for change removed
   "git.changeRemovedSign.hlGroup": "DiffChange",
-  "git.semanticCommit.scope": true,
-  "git.splitWindowCommand": "above sp",
-  "git.showCommitInFloating": true,
-  "git.gitlab.hosts": [
-    "framagit.org",
-    "gitlab.liris.cnrs.fr",
-    "gitlab.org"
+    // Enabled filetypes
+  "git.semanticCommit.filetypes": [
+    "gitcommit",
+    "gina-commit"
   ],
+    // Commit message with scope field
+  "git.semanticCommit.scope": true,
+    // Custom GitLab hosts
+  "git.gitlab.hosts": [
+    "gitlab.com",
+    "framagit.org",
+    "skyloud.dev"
+  ],
+    // An object to configure the url style of copyUrl and browserOpen, make
+    // this two command support other git services like gitlab and gitea
   "git.urlFix": {
     "gitlab.org": [
       "blob|-/tree"
@@ -408,58 +1007,45 @@
       "blob|-/tree"
     ]
   },
-  "git.conflict.enabled": true,
-  "git.conflict.current.hlGroup": "DiffChange",
-  "html.enable": true,
-  "html.execArgv": [],
-  "html.trace.server": "off",
-  "html.filetypes": [
-    "html",
-    "handlebars",
-    "htmldjango",
-    "blade"
-  ],
-  "html.format.enable": true,
-  "html.format.wrapLineLength": 120,
-  "html.format.unformatted": "wbr",
-  "html.format.contentUnformatted": "pre,code,textarea",
-  "html.format.indentInnerHtml": false,
-  "html.format.preserveNewLines": true,
-  "html.format.maxPreserveNewLines": null,
-  "html.format.indentHandlebars": false,
-  "html.format.endWithNewline": false,
-  "html.format.extraLiners": "head, body, /html",
-  "html.format.wrapAttributes": "auto",
-  "html.suggest.angular1": true,
-  "html.suggest.ionic": true,
-  "html.suggest.html5": true,
-  "html.validate.scripts": true,
-  "html.validate.styles": true,
-  "html.validate.html": true,
-  "html.autoClosingTags": true,
-  "html-css-support.enable": true,
-  "html-css-support.enabledLanguages": [
-    "html"
-  ],
-  "html-css-support.styleSheets": [],
-  "jedi.enable": true,
-  "jedi.startupMessage": false,
+// CoC - Snippets
+// Source: https://github.com/neoclide/coc-snippets
+// ===========================================================================
+    // Extends filetype's snippets with other filetypes, example: {
+  "snippets.extends": {
+    "cpp": [
+      "c"
+    ],
+    "javascriptreact": [
+      "javascript"
+    ],
+    "javascript.html": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
+  },
+    // Shortcut in completion menu
+  "snippets.shortcut": " ",
+// CoC - Toml
+// Source: https://github.com/kkiyama117/coc-toml/
+// ===========================================================================
+    // Align consecutive entries vertically.
+  "toml.formatter.alignEntries": true,
+    // Indent based on tables and arrays of tables and their subtables,
+    // subtables out of order are not indented.
+  "toml.formatter.indentTables": true,
+// CoC - Jedi
+// Source: https://github.com/pappasam/coc-jedi
+// ===========================================================================
+    // Enable/disable jedi-language-server's message on startup.
+  "jedi.startupMessage": true,
+    // The preferred MarkupKind for all jedi-language-server messages that take
+    // MarkupContent.
   "jedi.markupKindPreferred": "markdown",
-  "jedi.trace.server": "off",
-  "jedi.jediSettings.autoImportModules": [],
-  "jedi.jediSettings.caseInsensitiveCompletion": true,
-  "jedi.executable.args": [],
-  "jedi.codeAction.nameExtractFunction": "jls_extract_def",
-  "jedi.codeAction.nameExtractVariable": "jls_extract_var",
-  "jedi.completion.disableSnippets": false,
-  "jedi.completion.resolveEagerly": false,
-  "jedi.diagnostics.enable": true,
-  "jedi.diagnostics.didOpen": true,
-  "jedi.diagnostics.didChange": true,
-  "jedi.diagnostics.didSave": true,
-  "jedi.hover.enable": true,
-  "jedi.workspace.extraPaths": [],
-  "jedi.workspace.symbols.maxSymbols": 20,
+    // When diagnostics are enabled, run on document open
+  "jedi.diagnostics.enable": false,
+    // Performance optimization that sets names of folders that are ignored for workspace/symbols.
   "jedi.workspace.symbols.ignoreFolders": [
     ".nox",
     ".tox",
@@ -468,290 +1054,236 @@
     "venv",
     ".direnv"
   ],
-  "json.enable": true,
-  "json.format.enable": true,
-  "json.maxItemsComputed": 5000,
-  "json.schemaDownload.enable": true,
-  "session.directory": "~/.config/vim/.sessions",
-  "session.restartOnSessionLoad": true,
-  "session.saveOnVimLeave": true,
-  "list.source.mru.excludePatterns": [
-    "**/.git/*",
-    "/tmp/*",
-    "**/tmp/*",
-    "**/.direnv/*",
-    "**/.tox"
-  ],
-  "markdownlint.onOpen": true,
-  "markdownlint.onSave": true,
-  "markdownlint.onChange": false,
-  "markdownlint.config": {
-    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
-    "MD001": true,
-    "heading-increment": true,
-    "header-increment": true,
-    "MD002": true,
-    "first-heading-h1": true,
-    "first-header-h1": true,
-    "MD003": true,
-    "heading-style": true,
-    "header-style": true,
-    "MD004": true,
-    "ul-style": true,
-    "MD005": true,
-    "list-indent": true,
-    "MD006": false,
-    "ul-start-left": false,
-    "MD007": {
-      "indent": 2,
-      "start_indented": true
-    },
-    "ul-indent": {
-      "indent": 2,
-      "start_indented": true
-    },
-    "MD009": true,
-    "no-trailing-spaces": true,
-    "MD010": true,
-    "no-hard-tabs": true,
-    "MD011": true,
-    "no-reversed-links": true,
-    "MD012": true,
-    "no-multiple-blanks": true,
-    "MD013": {
-      "line_length": 80,
-      "heading_line_length": 80,
-      "code_block_line_length": 80,
-      "code_blocks": true,
-      "tables": false,
-      "headings": true,
-      "headers": true,
-      "strict": false,
-      "stern": false
-    },
-    "line-length": {
-      "line_length": 80,
-      "heading_line_length": 80,
-      "code_block_line_length": 80,
-      "code_blocks": true,
-      "tables": false,
-      "headings": true,
-      "headers": true,
-      "strict": false,
-      "stern": false
-    },
-    "MD014": true,
-    "commands-show-output": true,
-    "MD018": true,
-    "no-missing-space-atx": true,
-    "MD019": true,
-    "no-multiple-space-atx": true,
-    "MD020": true,
-    "no-missing-space-closed-atx": true,
-    "MD021": true,
-    "no-multiple-space-closed-atx": true,
-    "MD022": {
-      "lines_above": 1,
-      "lines_below": 1
-    },
-    "blanks-around-headings": {
-      "lines_above": 1,
-      "lines_below": 1
-    },
-    "blanks-around-headers": {
-      "lines_above": 1,
-      "lines_below": 1
-    },
-    "MD023": true,
-    "header-start-left": true,
-    "MD024": {
-      "allow_different_nesting": false,
-      "siblings_only": false
-    },
-    "no-duplicate-heading": {
-      "allow_different_nesting": false,
-      "siblings_only": false
-    },
-    "no-duplicate-header": {
-      "allow_different_nesting": false,
-      "siblings_only": false
-    },
-    "MD025": true,
-    "single-title": true,
-    "single-h1": true,
-    "MD026": true,
-    "no-trailing-punctuation": true,
-    "MD027": true,
-    "no-multiple-space-blockquote": true,
-    "MD028": true,
-    "no-blanks-blockquote": true,
-    "MD029": true,
-    "ol-prefix": true,
-    "MD030": true,
-    "list-marker-space": true,
-    "MD031": true,
-    "blanks-around-fences": true,
-    "MD032": true,
-    "blanks-around-lists": true,
-    "MD033": false,
-    "no-inline-html": false,
-    "MD034": true,
-    "no-bare-urls": true,
-    "MD035": true,
-    "hr-style": true,
-    "MD036": true,
-    "no-emphasis-as-heading": true,
-    "no-emphasis-as-header": true,
-    "MD037": true,
-    "no-space-in-emphasis": true,
-    "MD038": true,
-    "no-space-in-code": true,
-    "MD039": true,
-    "no-space-in-links": true,
-    "MD040": true,
-    "fenced-code-language": true,
-    "MD041": true,
-    "first-line-heading": true,
-    "first-line-h1": true,
-    "MD042": true,
-    "no-empty-links": true,
-    "MD043": true,
-    "required-headings": true,
-    "required-headers": true,
-    "MD044": true,
-    "proper-names": true,
-    "MD045": true,
-    "no-alt-text": true,
-    "MD046": true,
-    "code-block-style": true,
-    "MD047": true,
-    "single-trailing-newline": true,
-    "MD048": true,
-    "code-fence-style": true
-  },
-  "nginx.enable": true,
-  "nginx.nginxfmt.indent": 4,
-  "nginx.server.commandPath": "/home/rdeville/.local/bin/nginx-language-server",
-  "pydocstring.enable": true,
+// CoC - Pydocstring
+// Source: https://github.com/yaegassy/coc-pydocstring
+// ===========================================================================
+    // Docstring formatter (--formatter), valid options ["sphinx", "google",
+    // "numpy"]
   "pydocstring.formatter": "google",
-  "pydocstring.ignoreException": false,
-  "pydocstring.ignoreYield": false,
-  "pydocstring.enableFileAction": true,
-  "sh.enable": true,
-  "sh.explainshellEndpoint": "",
-  "sh.globPattern": "",
-  "sh.highlightParsingErrors": true,
-  "sh.trace.server": "off",
-  "snippets.priority": 90,
-  "snippets.trace": "error",
-  "snippets.enableStatusItem": true,
-  "snippets.loadFromExtensions": true,
-  "snippets.shortcut": "S",
-  "snippets.autoTrigger": true,
-  "snippets.ultisnips.enable": true,
-  "snippets.ultisnips.usePythonx": true,
-  "snippets.ultisnips.pythonVersion": 3,
-  "snippets.ultisnips.directories": [
-    "UltiSnips"
-  ],
-  "snippets.snipmate.enable": true,
-  "snippets.snipmate.author": "R. Deville",
-  "snippets.triggerCharacters": [
-    "<TAB>"
-  ],
-  "svg.completion.insertCloseTagSign": true,
-  "svg.completion.showAdvanced": false,
-  "svg.completion.showDeprecated": false,
-  "svg.disableFormatOnSave": false,
-  "svg.preview.background": "transparent",
-  "svg.preview.backgroundCustom": "#eee",
-  "svg.version": "1.1",
-  "svg.priority": 99,
-  "texlab.trace.server": "off",
-  "texlab.rootDirectory": null,
-  "texlab.build.executable": "latexmk",
-  "texlab.build.args": [
-    "-pdf",
-    "-interaction=nonstopmode",
-    "-synctex=1",
-    "%f"
-  ],
-  "texlab.build.onSave": false,
-  "texlab.build.forwardSearchAfter": false,
-  "texlab.auxDirectory": ".",
-  "texlab.forwardSearch.executable": null,
-  "texlab.forwardSearch.args": [],
-  "texlab.chktex.onOpenAndSave": false,
-  "texlab.chktex.onEdit": false,
-  "texlab.bibtexFormatter": "texlab",
-  "texlab.formatterLineLength": 80,
-  "texlab.latexFormatter": "latexindent",
-  "texlab.latexindent.local": null,
-  "texlab.latexindent.modifyLineBreaks": false,
-  "toml.enabled": true,
-  "toml.activationStatus": true,
-  "toml.taploConfigEnabled": true,
-  "toml.semanticTokens": false,
-  "toml.commands.clearCache": true,
-  "toml.commands.downloadSchemas": true,
-  "toml.commands.copyTomlAsJson": true,
-  "toml.commands.pasteTomlAsJson": true,
-  "toml.commands.copyJsonAsToml": true,
-  "toml.commands.pasteJsonAsToml": true,
-  "toml.formatter.alignEntries": true,
-  "toml.formatter.arrayTrailingComma": true,
-  "toml.formatter.arrayAutoExpand": true,
-  "toml.formatter.arrayAutoCollapse": true,
-  "toml.formatter.compactArrays": true,
-  "toml.formatter.compactInlineTables": false,
-  "toml.formatter.columnWidth": 80,
-  "toml.formatter.indentTables": false,
-  "toml.formatter.reorderKeys": false,
-  "toml.formatter.allowedBlankLines": 1,
-  "toml.formatter.trailingNewline": false,
-  "toml.formatter.crlf": false,
-  "toml.schema.enabled": true,
-  "toml.schema.links": false,
-  "toml.schema.repositoryEnabled": true,
-  "toml.schema.repositoryUrl": "https://taplo.tamasfe.dev/schema_index.json",
-  "toml.schema.associations": {
-    "^(.*(/|\\\\)\\.?taplo\\.toml|\\.?taplo\\.toml)$": "taplo://taplo.toml"
-  },
-  "toml.actions.ignoreDeprecatedAssociations": true,
-  "toml.debug": false,
-  "vimlsp.debug": false,
-  "vimlsp.filetypes": [
-    "vim"
-  ],
-  "vimlsp.diagnostic.enable": true,
-  "vimlsp.indexes.runtimepath": true,
-  "vimlsp.indexes.count": 1,
-  "vimlsp.indexes.gap": 100,
+// CoC - Vimlsp
+// Source: https://github.com/iamcco/coc-vimlsp
+// ===========================================================================
+    // Names of files used as the mark of project root.
   "vimlsp.indexes.projectRootPatterns": [
     "init.vim",
     "vimrc",
+    "autoload",
+    "plugin",
     ".git"
   ],
-  "vimlsp.suggest.fromVimruntime": true,
-  "vimlsp.trace.server": "off",
-  "yaml.execArgv": [
-    "--stdio"
-  ],
-  "yaml.trace.server": "verbose",
-  "yaml.schemas": {
-    "/home/rdeville/.cache/ansible/schemas/data/modules-name.json": "tasks/*.yaml"
+// CoC - Html
+// Source: https://github.com/neoclide/coc-html
+// ===========================================================================
+    // Honor django, erb, handlebars and php templating language tags
+    "html.format.templating": true,
+// CoC - MakrdownLint
+// Source: https://github.com/fannheyward/coc-markdownlint
+// ===========================================================================
+    // Lint on open a file
+  "markdownlint.onOpen": true,
+    // Lint on changing a file
+  "markdownlint.onChange": false,
+    // Lint on saving a file
+  "markdownlint.onSave": true,
+    // Configurations rules used by markdownlint
+  "markdownlint.config": {
+    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+    // MD001 - Heading Increment
+      "MD001": true,
+      "heading-increment": true,
+      "header-increment": true,
+    // MD002 - First Heading H1
+      "MD002": true,
+      "first-heading-h1": true,
+      "first-header-h1": true,
+    // MD003 - Heading Style
+      "MD003": true,
+      "heading-style": true,
+      "header-style": true,
+    // MD004 - ul Style
+      "MD004": true,
+      "ul-style": true,
+    // MD005 - List indent
+      "MD005": true,
+      "list-indent": true,
+    // MD006 - Ul Start Left
+      "MD006": false,
+      "ul-start-left": false,
+    // MD007 - Ul Indent
+      "MD007": {
+        "indent": 2,
+        "start_indented": true
+      },
+      "ul-indent": {
+        "indent": 2,
+        "start_indented": true
+      },
+    // MD008 - No Trailing Spaces
+      "MD009": true,
+      "no-trailing-spaces": true,
+    // MD010 - No Hard Tabs
+      "MD010": true,
+      "no-hard-tabs": true,
+    // MD011 - No Reversed Links
+      "MD011": true,
+      "no-reversed-links": true,
+    // MD012 - No Multiple Blanks
+      "MD012": true,
+      "no-multiple-blanks": true,
+    // MD013 - Line Lenght
+      "MD013": {
+        "line_length": 80,
+        "heading_line_length": 80,
+        "code_block_line_length": 80,
+        "code_blocks": true,
+        "tables": false,
+        "headings": true,
+        "headers": true,
+        "strict": false,
+        "stern": false
+      },
+      "line-length": {
+        "line_length": 80,
+        "heading_line_length": 80,
+        "code_block_line_length": 80,
+        "code_blocks": true,
+        "tables": false,
+        "headings": true,
+        "headers": true,
+        "strict": false,
+        "stern": false
+      },
+    // MD014 - Command Sho Output
+      "MD014": true,
+      "commands-show-output": true,
+    // MD018 - No Missing Space ATX
+      "MD018": true,
+      "no-missing-space-atx": true,
+    // MD019 - No Multiple Space ATX
+      "MD019": true,
+      "no-multiple-space-atx": true,
+    // MD020 - No Missing Space Closed ATX
+      "MD020": true,
+      "no-missing-space-closed-atx": true,
+    // MD021 - No Multiple Space Closed ATX
+      "MD021": true,
+      "no-multiple-space-closed-atx": true,
+    // MD022 - Blank Around Heading
+      "MD022": {
+        "lines_above": 1,
+        "lines_below": 1
+      },
+      "blanks-around-headings": {
+        "lines_above": 1,
+        "lines_below": 1
+      },
+      "blanks-around-headers": {
+        "lines_above": 1,
+        "lines_below": 1
+      },
+    // MD023 - Header Start Left
+      "MD023": true,
+      "header-start-left": true,
+    // MD024 - No Duplicate Heading
+      "MD024": {
+        "allow_different_nesting": false,
+        "siblings_only": false
+      },
+      "no-duplicate-heading": {
+        "allow_different_nesting": false,
+        "siblings_only": false
+      },
+      "no-duplicate-header": {
+        "allow_different_nesting": false,
+        "siblings_only": false
+      },
+    // MD025 - Single Title
+      "MD025": true,
+      "single-title": true,
+      "single-h1": true,
+    // MD026 - No Trailing Ponctuation
+      "MD026": true,
+      "no-trailing-punctuation": true,
+    // MD027 - No Multiple Space Blockquote
+      "MD027": true,
+      "no-multiple-space-blockquote": true,
+    // MD028 - No Blanks Blockquote
+      "MD028": true,
+      "no-blanks-blockquote": true,
+    // MD029 - Ol Prefix
+      "MD029": true,
+      "ol-prefix": true,
+    // MD030 - List Marker Space
+      "MD030": true,
+      "list-marker-space": true,
+    // MD031 - Blanks Around Fences
+      "MD031": true,
+      "blanks-around-fences": true,
+    // MD032 - Blank Around Lists
+      "MD032": true,
+      "blanks-around-lists": true,
+    // MD033 - No Inline Html
+      "MD033": false,
+      "no-inline-html": false,
+    // MD034 - No Bare URL
+      "MD034": true,
+      "no-bare-urls": true,
+    // MD035 - HR Style
+      "MD035": true,
+      "hr-style": true,
+    // MD036 - No Emphasis as Heading
+      "MD036": true,
+      "no-emphasis-as-heading": true,
+      "no-emphasis-as-header": true,
+    // MD037 - No Space in Emphasis
+      "MD037": true,
+      "no-space-in-emphasis": true,
+    // MD038 - No Space in Code
+      "MD038": true,
+      "no-space-in-code": true,
+    // MD039 - No Space in Links
+      "MD039": true,
+      "no-space-in-links": true,
+    // MD040 - Fenced Code Language
+      "MD040": true,
+      "fenced-code-language": true,
+    // MD041 - First Line Heading
+      "MD041": true,
+      "first-line-heading": true,
+      "first-line-h1": true,
+    // MD042 - No Empty Links
+      "MD042": true,
+      "no-empty-links": true,
+    // MD043 - Required Heading
+      "MD043": true,
+      "required-headings": true,
+      "required-headers": true,
+    // MD044 - Proper Names
+      "MD044": true,
+      "proper-names": true,
+    // MD045 - No Alt Text
+      "MD045": true,
+      "no-alt-text": true,
+    // MD046 - Code Block Style
+      "MD046": true,
+      "code-block-style": true,
+    // MD047 - Single Trailing Newline
+      "MD047": true,
+      "single-trailing-newline": true,
+    // MD048 - Code Fence Style
+      "MD048": true,
+      "code-fence-style": true
   },
-  "yaml.format.enable": true,
-  "yaml.format.singleQuote": false,
-  "yaml.format.bracketSpacing": true,
-  "yaml.format.proseWrap": "preserve",
-  "yaml.format.printWidth": 80,
-  "yaml.validate": true,
-  "yaml.hover": true,
-  "yaml.completion": true,
-  "yaml.customTags": [],
-  "yaml.schemaStore.enable": true,
-  "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
-  "yaml.disableAdditionalProperties": false,
-  "yaml.maxItemsComputed": 5000
+// CoC - MakrdownLint
+// Source: https://github.com/fannheyward/coc-markdownlint
+// ===========================================================================
+  // Highlight Parsing Errors
+  "sh.highlightParsingErrors": true,
+// CoC - SVG
+// Source: https://github.com/iamcco/coc-svg
+// ===========================================================================
+    // Specifies whether advanced items that are not commonly used are displayed
+    // in the AutoComplete list.
+  "svg.completion.showAdvanced": true
 }
+// vim: ft=jsonc
