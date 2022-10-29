@@ -1,0 +1,23 @@
+{
+// CoC - Snippets
+// Source: https://github.com/neoclide/coc-snippets
+// ===========================================================================
+    // Extends filetype's snippets with other filetypes, example: {
+  "snippets.extends": {
+    "cpp": [
+      "c"
+    ],
+    "javascriptreact": [
+      "javascript"
+    ],
+    "javascript.html": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
+  },
+    // Shortcut in completion menu
+  "snippets.shortcut": " "
+}
+// vim: ft=jsonc
