@@ -1,0 +1,8 @@
+{
+// CoC - MakrdownLint
+// Source: https://github.com/fannheyward/coc-markdownlint
+// ===========================================================================
+  // Highlight Parsing Errors
+  "sh.highlightParsingErrors": true
+}
+// vim: ft=jsonc
