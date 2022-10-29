@@ -1,6 +1,11 @@
 " # Description
 " File hosting list of plugin to install and when to run them
 
+function! UpdateCoc(info)
+  !g:new_rtp . '/plugins/coc/merge_settings.sh'
+  :CocUpdate
+endfunction
+
   " Start vim-plug list of plugin, and tell it where to download plugins.
   " Make sure you use single quotes.
 call plug#begin(vimrc_basedir . '/.installed_plugins')
@@ -99,6 +104,7 @@ call plug#begin(vimrc_basedir . '/.installed_plugins')
   Plug 'neoclide/coc.nvim',
     \{
       \ 'branch': 'release',
+      \ 'do': function('UpdateCoc')
     \}
 
   " ### `markdown-preview'
@@ -180,8 +186,8 @@ call plug#begin(vimrc_basedir . '/.installed_plugins')
   Plug 'SidOfc/mkdx'
 
 " # Filetype
-  " List of plugins per filetype such as syntax files, editor helper (edit json as
-  " yaml), etc.
+  " List of plugins per filetype such as syntax files, editor helper (edit json
+  " as yaml), etc.
 
   " ## Markdown
   " ### `markdown-toc'
