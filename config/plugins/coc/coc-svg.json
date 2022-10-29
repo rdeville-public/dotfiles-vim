@@ -1,0 +1,9 @@
+{
+// CoC - SVG
+// Source: https://github.com/iamcco/coc-svg
+// ===========================================================================
+    // Specifies whether advanced items that are not commonly used are displayed
+    // in the AutoComplete list.
+  "svg.completion.showAdvanced": true,
+}
+// vim: ft=jsonc
