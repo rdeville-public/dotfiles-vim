@@ -271,10 +271,6 @@ call plug#begin(vimrc_basedir . '/.installed_plugins')
     " Vim interface for taskwarrior
     " Source: https://github.com/linuxcaffe/taskwarrior.vim
   Plug 'linuxcaffe/taskwarrior.vim'
-  "lug 'xarthurx/vim-taskwarrior',
-  " \{
-  " \ 'on': 'VimwikiIndex',
-  " \}
 
   " ## `calendar`
     " Simple calendar view in vim, usefull when used in combination of journal
