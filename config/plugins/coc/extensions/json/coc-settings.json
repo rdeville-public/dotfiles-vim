@@ -1,6 +1,0 @@
-{
-  "json.enable": true,
-  "json.format.enable": true,
-  "json.maxItemsComputed": 5000,
-  "json.schemaDownload.enable": true
-}
