@@ -1,0 +1,8 @@
+{
+// CoC - Html
+// Source: https://github.com/neoclide/coc-html
+// ===========================================================================
+    // Honor django, erb, handlebars and php templating language tags
+    "html.format.templating": true
+}
+// vim: ft=jsonc
