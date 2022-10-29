@@ -1,0 +1,11 @@
+{
+// CoC - Toml
+// Source: https://github.com/kkiyama117/coc-toml/
+// ===========================================================================
+    // Align consecutive entries vertically.
+  "toml.formatter.alignEntries": true,
+    // Indent based on tables and arrays of tables and their subtables,
+    // subtables out of order are not indented.
+  "toml.formatter.indentTables": true,
+}
+// vim: ft=jsonc
