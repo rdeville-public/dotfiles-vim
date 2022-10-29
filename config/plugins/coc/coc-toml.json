@@ -6,6 +6,6 @@
   "toml.formatter.alignEntries": true,
     // Indent based on tables and arrays of tables and their subtables,
     // subtables out of order are not indented.
-  "toml.formatter.indentTables": true,
+  "toml.formatter.indentTables": true
 }
 // vim: ft=jsonc
