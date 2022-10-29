@@ -1,26 +1,30 @@
 #!/usr/bin/env bash
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-SETTING="${SCRIPT_DIR}/coc-settings.json"
-SETTING_BASE="${SCRIPT_DIR}/coc-settings.base.json"
-SETTING_MERGE="${SETTING/json/merge.json}"
-SETTING_TMP="${SETTING/json/tmp.json}"
 
-mv "${SETTING}" "${SETTING}.bak"
-cp "${SETTING_BASE}" "${SETTING_TMP}"
-cp "${SETTING_BASE}" "${SETTING_MERGE}"
+main(){
+  setting="${SCRIPT_DIR}/coc-settings.json"
+  setting_base="${SCRIPT_DIR}/coc-settings.base.json"
+  setting_merge="${setting/json/merge.json}"
+  setting_tmp="${setting/json/tmp.json}"
 
-for i_ext in "${SCRIPT_DIR}"/extensions/*/
-do
-  setting="${i_ext}coc-settings.json"
-  echo ${setting}
-  if [[ -f "${setting}" ]]
-  then
-    jq -s '.[0] * .[1]' "${SETTING_MERGE}" "${setting}" > "${SETTING_TMP}"
-    cp "${SETTING_TMP}" "${SETTING_MERGE}"
-  fi
-done
+  mv "${setting}" "${setting}.bak"
+  cp "${setting_base}" "${setting_tmp}"
+  cp "${setting_base}" "${setting_merge}"
 
-cp "${SETTING_MERGE}" "${SETTING}"
+  for i_ext in "${SCRIPT_DIR}"/extensions/*/
+  do
+    setting="${i_ext}coc-settings.json"
+    if [[ -f "${setting}" ]]
+    then
+      jq -s '.[0] * .[1]' "${setting_merge}" "${setting}" > "${setting_tmp}"
+      cp "${setting_tmp}" "${setting_merge}"
+    fi
+  done
 
-rm "${SETTING_MERGE}" "${SETTING_TMP}"
+  cp "${setting_merge}" "${setting}"
+
+  rm "${setting_merge}" "${setting_tmp}"
+}
+
+main "$@"

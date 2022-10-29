@@ -1,5 +1,0 @@
-{
-  "nginx.enable": true,
-  "nginx.nginxfmt.indent": 4,
-  "nginx.server.commandPath": "/home/rdeville/.local/bin/nginx-language-server"
-}

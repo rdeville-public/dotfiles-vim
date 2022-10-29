@@ -1,0 +1,95 @@
+// "default_config": "https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts"
+{
+// CoC - Diagnostic
+// Source: https://github.com/iamcco/coc-diagnostic/
+// ===========================================================================
+    // To enable this plugin for filetypes you have to config
+    // diagnostic-languageserver.filetypes for linters and
+    // diagnostic-languageserver.formatFiletypes for formatters.
+
+    // If mergeConfig is true (default false) then any configuration for linters
+    // and formatters is merged with the default configuration, this allow
+    // overriding specific parts of the configuration only.
+  "diagnostic-languageserver.mergeConfig": true,
+    // Enable debug
+  "diagnostic-languageserver.debug": true,
+    // "Trace level of diagnostic-languageserver"
+  "diagnostic-languageserver.trace.server": "verbose",
+    //  Default available linters for below diagnostic-languageserver.filetypes
+    //   - eslint
+    //   - shellcheck
+    //   - write-good
+    //   - vint
+    //   - languagetool
+    //   - markdownlint
+    //   - phpcs
+    //   - mix_credo
+    //   - mix_credo_compile
+    //   - stylelint
+    //   - standard
+    //   - hadolint
+    //   - golangci-lint
+    //   - revive
+    //   - phpstan
+    //   - psalm
+    //   - tidy
+    //   - nix-linter
+    //   - yamllint
+    //   - fish
+    //   - textidote
+    //   - hlint
+    //   - pylint
+    //   - mypy
+    //   - cpplint
+    //   - xo
+    //   - flake8
+    //   - ansibleLint
+    //   - proselint
+    //   - luacheck
+    //   - cmakelint
+    //   - cmake-lint
+    //   - systemd-analyze
+    // Filetypes config same as diagnostic-languageserver's filetypes config
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "vim": "vint",
+    "cpp": "cpplint",
+    "dockerfile": "hadolint",
+    "css": "stylelint",
+    "html": "tidy",
+    "tex": "textidote",
+    "python": [
+      "pylint",
+      "flake8",
+      "mypy"
+    ],
+    "lua": "luacheck",
+    "markdown": [
+      "write-good",
+      "markdownlint"
+    ],
+    "vimwiki": [
+      "write-good",
+      "markdownlint"
+    ],
+    "vimwiki.jinja2": [
+      "write-good",
+      "markdownlint"
+    ],
+    "vimwiki.markdown": [
+      "write-good",
+      "markdownlint"
+    ],
+    "markdown.vimwiki": [
+      "write-good",
+      "markdownlint"
+    ],
+    "javascript": [
+      "eslint"
+    ],
+    "javascript.html": [
+      "eslint"
+    ]
+  }
+}
+// vim: ft=jsonc: fdm=indent: fdi=

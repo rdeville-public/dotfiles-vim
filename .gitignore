@@ -7,7 +7,7 @@
 .plugged
 .sessions
 .view
-.plugins_installed
+.installed_*
 .undodir
 versions.json
 

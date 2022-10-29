@@ -1,0 +1,28 @@
+{
+    // Enable/disable coc-yaml (requires restart)
+  "yaml.enable": true,
+    // Enable/disable default YAML formatter (requires restart)
+  "yaml.format.enable": true,
+    // Use single quotes instead of double quotes
+  "yaml.format.singleQuote": false,
+    // Print spaces between brackets in objects
+  "yaml.format.bracketSpacing": true,
+    // Wrap long line:
+    //   - Always: wrap prose if it exeeds the print width,
+    //   - Never: never wrap the prose,
+    //   - Preserve: wrap prose as-is
+  "yaml.format.proseWrap": "always",
+    // Enable/disable validation feature
+  "yaml.validate": true,
+    // Enable/disable autocompletion
+  "yaml.completion": true,
+    // Helps you associate schemas with files in a glob pattern
+  // "yaml.schemas": {
+  //   "/home/rdeville/.cache/ansible/schemas/data/modules-name.json": "tasks/*.yaml"
+  // },
+    // When set to true the YAML language server will pull in all available
+    // schemas from JSON Schema Store
+  "yaml.schemaStore.enable": true
+}
+
+// vim: ft=jsonc

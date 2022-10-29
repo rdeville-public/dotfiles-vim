@@ -1,0 +1,8 @@
+{
+// CoC - Json
+// Source: https://github.com/neoclide/coc-json
+// ===========================================================================
+    // Keep all existing new lines when formatting
+  "json.format.keepLines": true
+}
+// vim: ft=jsonc
