@@ -1,0 +1,26 @@
+{
+// CoC - Lists
+// Source: https://github.com/neoclide/coc-lists/
+// ===========================================================================
+    // Save session on VimLeavePre., default to true
+  "session.saveOnVimLeave": false,
+    // Restart vim with cwd changed on session load, support neovim on iTerm2 only.
+  "session.restartOnSessionLoad": false,
+    // List names to disable form load.
+  "lists.disabledLists": [
+    "buffers",       // Current buffer list.
+    "changes",       // Changes list.
+    "files",         // Search files from current cwd.
+    "helptags",      // Helptags of vim.
+    "locationlist",  // Items from vim's location list.
+    "marks",         // Marks of vim.
+    "mru",           // Most recent used files.
+    "quickfix",      // Items from vim's quickfix list.
+    "registers",     // Registers of vim.
+    "searchhistory", // History of search.
+    "sessions",      // Session list.
+    "tags",          // Search tag files.
+    "windows"        // Windows of vim.
+  ]
+}
+// vim: ft=jsonc
