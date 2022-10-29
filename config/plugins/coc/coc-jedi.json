@@ -1,0 +1,22 @@
+{
+// CoC - Jedi
+// Source: https://github.com/pappasam/coc-jedi
+// ===========================================================================
+    // Enable/disable jedi-language-server's message on startup.
+  "jedi.startupMessage": true,
+    // The preferred MarkupKind for all jedi-language-server messages that take
+    // MarkupContent.
+  "jedi.markupKindPreferred": "markdown",
+    // When diagnostics are enabled, run on document open
+  "jedi.diagnostics.enable": false,
+    // Performance optimization that sets names of folders that are ignored for workspace/symbols.
+  "jedi.workspace.symbols.ignoreFolders": [
+    ".nox",
+    ".tox",
+    ".venv",
+    "__pycache__",
+    "venv",
+    ".direnv"
+  ]
+}
+// vim: ft=jsonc
