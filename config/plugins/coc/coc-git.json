@@ -1,0 +1,73 @@
+{
+// CoC - Git
+// Source: https://github.com/neoclide/coc-git
+// ===========================================================================
+    // Formatting string for issue completion. Supported interpolation variables
+    //   - %i: issue id.
+    //   - %r: repository name.
+    //   - %o: organization/owner name.
+    //   - %t: issue title.
+    //   - %b: issue body.
+    //   - %c: issue created at.
+    //   - %a: issue author.
+    //   - %u: issue url.
+    // default : "#%i"
+  "git.issueFormat": "#%i - %t",
+    // Branch character used with g:coc_git_status
+  "git.branchCharacter": "",
+    // Git changed decorator used with g:coc_git_status
+  "git.changedDecorator": "✹",
+    // Git conflicted decorator used with g:coc_git_status
+  "git.conflictedDecorator": "=",
+    // Git staged decorator used with g:coc_git_status
+  "git.stagedDecorator": "",
+    // Git untracked decorator used with g:coc_git_status
+  "git.untrackedDecorator": "",
+    // Text of changed sign.
+  "git.changedSign.text": "✹",
+    // Highlight group for changed sign.
+  "git.changedSign.hlGroup": "DiffChange",
+    //Text of added sign.
+  "git.addedSign.text": "",
+    // Highlight group for added sign.
+  "git.addedSign.hlGroup": "DiffAdd",
+   // Text of removed sign.
+  "git.removedSign.text" : "",
+   // Highlight group for removed sign., default
+  "git.removedSign.hlGroup": "DiffDelete",
+    // Text of top removed sign.
+  "git.topRemovedSign.text": "!",
+    // Highlight group for top removed sign.,
+  "git.topRemovedSign.hlGroup": "DiffDelete",
+    // Text of change removed sign.
+  "git.changeRemovedSign.text": "✹",
+    // Highlight group for change removed
+  "git.changeRemovedSign.hlGroup": "DiffChange",
+    // Enabled filetypes
+  "git.semanticCommit.filetypes": [
+    "gitcommit",
+    "gina-commit"
+  ],
+    // Commit message with scope field
+  "git.semanticCommit.scope": true,
+    // Custom GitLab hosts
+  "git.gitlab.hosts": [
+    "gitlab.com",
+    "framagit.org",
+    "skyloud.dev"
+  ],
+    // An object to configure the url style of copyUrl and browserOpen, make
+    // this two command support other git services like gitlab and gitea
+  "git.urlFix": {
+    "gitlab.org": [
+      "blob|-/tree"
+    ],
+    "gitlab.liris.cnrs.fr": [
+      "blob|-/tree"
+    ],
+    "framagit.org": [
+      "blob|-/tree"
+    ]
+  }
+}
+// vim: ft=jsonc
