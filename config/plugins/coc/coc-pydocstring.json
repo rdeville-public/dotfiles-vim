@@ -1,0 +1,9 @@
+{
+// CoC - Pydocstring
+// Source: https://github.com/yaegassy/coc-pydocstring
+// ===========================================================================
+    // Docstring formatter (--formatter), valid options ["sphinx", "google",
+    // "numpy"]
+  "pydocstring.formatter": "google"
+}
+// vim: ft=jsonc
