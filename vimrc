@@ -37,6 +37,7 @@ exe 'source ' . new_rtp . '/autocmd.vim'
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
+" ------------------------------------------------------------------------------
 " VIM MODELINE
 " vim: fdm=indent
 " ------------------------------------------------------------------------------
