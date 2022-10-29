@@ -1,0 +1,14 @@
+{
+// CoC - Vimlsp
+// Source: https://github.com/iamcco/coc-vimlsp
+// ===========================================================================
+    // Names of files used as the mark of project root.
+  "vimlsp.indexes.projectRootPatterns": [
+    "init.vim",
+    "vimrc",
+    "autoload",
+    "plugin",
+    ".git"
+  ]
+}
+// vim: ft=jsonc
