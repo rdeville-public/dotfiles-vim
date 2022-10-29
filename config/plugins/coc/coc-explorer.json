@@ -1,0 +1,126 @@
+{
+// CoC - Explorer
+// Source: https://github.com/weirongxu/coc-explorer/
+// ===========================================================================
+    // Content width, use negative value or zero to as `width - value`.
+  "explorer.width": 15,
+    // Content width, use negative value or zero to as `width - value`.
+  "explorer.contentWidth": 75,
+    // Preview content maximum height.
+  "explorer.previewAction.content.maxHeight": 100,
+    // Strategy for open action.
+  "explorer.openAction.strategy": "select",
+    // Filter windows for select strategy.
+  "explorer.openAction.select.filter": {
+    "buftypes": [
+      "terminal"
+    ],
+    "filetypes": [
+      "vista_kind",
+      "qf",
+      "tagbar",
+      "coctree"
+    ],
+    "floatingWindows": true,
+    "sources": {
+      "buffer": {
+        "buftypes": []
+      }
+    }
+  },
+  // Explorer sources.
+  "explorer.sources":
+  [
+    {
+      "name": "bookmark",
+      "expand": true
+    },
+    {
+      "name": "buffer",
+      "expand": true
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+    // Enable integrated with coc-floatinput.
+  "explorer.enableFloatinput": false,
+    //  Maximum count of diagnostic column.
+  "explorer.diagnostic.displayMax": 9,
+    // Enable nerdfont
+  "explorer.icon.enableNerdfont": true,
+    // The source or file type icon and color.
+  "explorer.icon.source": "vim-devicons",
+    // Selection selected chars for File source.
+  "explorer.icon.selected": "✓",
+    // Icon for hidden status.
+  "explorer.icon.hidden": "‥",
+    // Icon for soft link.
+  "explorer.icon.link": "→",
+    // Icon for readonly.
+  "explorer.icon.readonly": "",
+    // Default show hidden buffers.
+  "explorer.buffer.showHiddenBuffers": true,
+    // Template for root node of buffer source.
+  "explorer.buffer.root.template": "[icon] [title] [hidden & 1]",
+    // Template for child node of buffer source.
+  "explorer.buffer.child.template": "[selection | 1][readonly | 1][name][modified]",
+    // Explorer will automatically reveal to the current buffer when open explorer.
+  "explorer.file.reveal.whenOpen": true,
+    // Explorer will automatically reveal to the current buffer when enter a buffer.
+  "explorer.file.reveal.auto": false,
+    // Default show hidden files.
+  "explorer.file.showHiddenFiles": true,
+    // Template for root node of file source.
+  "explorer.file.root.template": "[icon]  [title] [hidden & 1][root] [fullpath]",
+    // Template for child node file source.
+  "explorer.file.child.template": "[git | 2][selection | clip | 1][diagnosticError | diagnosticWarning | 1][indent][icon | 1] [filename omitCenter 1][modified][readonly]",
+    // Whether to display the alignment line.
+  "explorer.file.column.indent.indentLine": true,
+    // Enable git.
+  "explorer.git.enable": true,
+    // Git command.
+  "explorer.git.command": "git",
+    // Icon for a stash exists for the local repository.
+  "explorer.git.icon.rootStatus.stashed": "$",
+    // Icon for current branch ahead of upstream.
+  "explorer.git.icon.rootStatus.ahead": "⬆️",
+    // Icon for current branch behind upstream.
+  "explorer.git.icon.rootStatus.behind": "⬇️",
+    // Icon for current branch has merge conflicts.
+  "explorer.git.icon.rootStatus.conflicted": "",
+    // Icon for there are untracked files in the working directory.
+  "explorer.git.icon.rootStatus.untracked": "",
+    // Icon for there are file modifications in the working directory.
+  "explorer.git.icon.rootStatus.modified": "",
+    // Icon for a new file has been added to the staging area.
+  "explorer.git.icon.rootStatus.added": "",
+    // Icon for a renamed file has been added to the staging area.
+  "explorer.git.icon.rootStatus.renamed": "",
+    // Icon for a file's deletion has been added to the staging area.
+  "explorer.git.icon.rootStatus.deleted": "",
+    // Icon for git mixed status.
+  "explorer.git.icon.status.mixed": "✹",
+    // Icon for git unmodified status.
+  "explorer.git.icon.status.unmodified": " ",
+    // Icon for git modified status.
+  "explorer.git.icon.status.modified": "",
+    // Icon for git added status.
+  "explorer.git.icon.status.added": "",
+    // Icon for git removed status.
+  "explorer.git.icon.status.deleted": "",
+    // Icon for git renamed status.
+  "explorer.git.icon.status.renamed": "",
+    // Icon for git copied status.
+  "explorer.git.icon.status.copied": "",
+    // Icon for git unmerged status.
+  "explorer.git.icon.status.unmerged": "U",
+    // Icon for git untracked status.
+  "explorer.git.icon.status.untracked": "",
+    // Icon for git ignored status.
+  "explorer.git.icon.status.ignored": " ",
+    // Show ignored files in git.
+  "explorer.git.showIgnored": true
+}
+// vim: ft=jsonc
