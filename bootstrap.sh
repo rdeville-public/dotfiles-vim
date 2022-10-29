@@ -2,11 +2,62 @@
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" || exit 1 >/dev/null 2>&1 ; pwd -P )"
 
-declare -A NODES
+declare -A NODES=(
+  ["${SCRIPTPATH}/vimrc"]="${HOME}/.vimrc"
+  ["${SCRIPTPATH}"]="${HOME}/.config/nvim"
+  ["${SCRIPTPATH}"]="${HOME}/.config/vim"
+)
 
-NODES["${SCRIPTPATH}/vimrc"]="${HOME}/.vimrc"
-NODES["${SCRIPTPATH}"]="${HOME}/.config/nvim"
-NODES["${SCRIPTPATH}"]="${HOME}/.config/vim"
+PACKAGE_DEPENDENCIES=(
+  "hadolint"
+  "golangci-lint"
+  "luarocks"
+  "node"
+  "terraform"
+  "go"
+  "fzf"
+  "texlab"
+)
+
+PYTHON_DEPENDENCIES=(
+  "vim-vint"
+  "pylint"
+  "flake8"
+  "shellcheck-py"
+  "yamllint"
+  "mypy"
+  "proselint"
+  "yapf"
+  "isort"
+  "black"
+  "jedi"
+  "doq"
+)
+
+NODE_DEPENDENCIES=(
+  "nginx-language-server"
+  "dockerfile-language-server-nodejs"
+  "diagnostic-languageserver"
+  "eslint"
+  "write-good"
+  "markdownlint"
+  "stylelint"
+  "standard"
+  "lua-fmt"
+  "prettier"
+  "prettier-eslint"
+  "vim-language-server"
+  "bash-language-server"
+)
+
+LUAROCKS_DEPENDENCIES=(
+  "luacheck"
+)
+
+declare -A GO_DEPENDENCIES=(
+  ["revive"]="github.com/mgechev/revive@latest"
+  ["shfmt"]="mvdan.cc/sh/v3/cmd/shfmt@latest"
+)
 
 # shellcheck disable=SC2034
 #   - SC2034: var appears unused, Verify use (or export if used externally)
@@ -93,6 +144,62 @@ vim_log()
   echo -e "${msg}" 1>&2
 }
 
+test_command(){
+  local cmd=$1
+  if ! command -v "${cmd}" &> /dev/null
+  then
+    vim_log "ERROR" "Command **'${cmd}'** is not installed."
+    vim_log "ERROR" "Please install it first and run **bootstrap.sh** again."
+    return 1
+  fi
+}
+
+install_package_dep(){
+  brew_install(){
+    brew install --quiet "$1"
+  }
+
+  if [[ "$(uname)" == "Darwin" ]]
+  then
+    vim_log "INFO" "Installing brew packages dependency."
+    brew_install "${PACKAGE_DEPENDENCIES[@]}"
+  else
+    vim_log "ERROR" "Please code install method for package dependencies for this OS."
+  fi
+
+}
+
+install_node_dep(){
+  vim_log "INFO" "Installing node dependencies for plugins"
+  npm install --silent --global "${NODE_DEPENDENCIES[*]}"
+}
+
+install_python_dep(){
+  if [[ -n ${VIRTUAL_ENV} ]]
+  then
+    vim_log "ERROR" "Please deactivate virtualenv to run script bootstrap.sh "
+    return 1
+  fi
+  vim_log "INFO" "Installing python dependencies for plugins"
+  pip3 install --quiet --user "${PYTHON_DEPENDENCIES[@]}"
+}
+
+install_go_dep(){
+  vim_log "INFO" "Installing go dependencies for plugins"
+  for i_dep in "${GO_DEPENDENCIES[@]}"
+  do
+    go install "${i_dep}" &> /dev/null
+  done
+}
+
+install_lua_dep(){
+  vim_log "INFO" "Installing lua dependencies for plugins"
+  for i_dep in "${LUAROCKS_DEPENDENCIES[@]}"
+  do
+    luarocks install "${i_dep}" &> /dev/null
+  done
+}
+
 main(){
   cd "${SCRIPTPATH}" || exit 1
 
@@ -119,7 +226,23 @@ main(){
         vim_log "INFO" "Bootstrap: Symlink to **${dest/${HOME}/\~}** already exists."
       fi
     done
+
+    if [[ -z "${GOPATH}" ]]
+    then
+      GOPATH="${HOME}/.local/share/go/"
+    fi
+    if ! [[ -d "${GOPATH}" ]]
+    then
+      mkdir -p "${GOPATH}"
+    fi
+    install_package_dep
+    install_python_dep
+    install_node_dep
+    install_go_dep
+    install_lua_dep
   fi
 }
 
 main "$@"
+
+# vim: fdi=
