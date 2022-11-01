@@ -3,7 +3,7 @@
 // Source: https://github.com/weirongxu/coc-explorer/
 // ===========================================================================
     // Content width, use negative value or zero to as `width - value`.
-  "explorer.width": 15,
+  "explorer.width": 75,
     // Content width, use negative value or zero to as `width - value`.
   "explorer.contentWidth": 75,
     // Preview content maximum height.
@@ -63,9 +63,9 @@
     // Default show hidden buffers.
   "explorer.buffer.showHiddenBuffers": true,
     // Template for root node of buffer source.
-  "explorer.buffer.root.template": "[icon] [title] [hidden & 1]",
+  "explorer.buffer.root.template": "[icon]  [title] [hidden & 1]",
     // Template for child node of buffer source.
-  "explorer.buffer.child.template": "[selection | 1][readonly | 1][name][modified]",
+  "explorer.buffer.child.template": "[selection | 1][readonly | 1] [name][modified] [bufname]",
     // Explorer will automatically reveal to the current buffer when open explorer.
   "explorer.file.reveal.whenOpen": true,
     // Explorer will automatically reveal to the current buffer when enter a buffer.

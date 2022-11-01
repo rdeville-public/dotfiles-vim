@@ -65,23 +65,18 @@
     ],
     "lua": "luacheck",
     "markdown": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki.jinja2": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki.markdown": [
-      "write-good",
       "markdownlint"
     ],
     "markdown.vimwiki": [
-      "write-good",
       "markdownlint"
     ],
     "javascript": [
