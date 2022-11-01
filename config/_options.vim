@@ -256,7 +256,7 @@ scriptencoding utf-8
     " Columns to highlight (local to window)
   set colorcolumn=+1
     " Put vertical column at 81 char, 121 char at 161 char and after 200 char
-  let &colorcolumn="81,121,161,".join(range(201,300),",")
+  let &colorcolumn='81,121,161,'.join(range(201,300),',')
     " Highlight spelling mistakes (local to window)
   set nospell
     " `spelllang` list of accepted languages (local to buffer)
@@ -633,7 +633,7 @@ scriptencoding utf-8
     " (global or local to buffer)
   set backupcopy=auto
     " List of directories to put backup files in
-  exec   "set backupdir=/tmp/"
+  exec 'set backupdir=/tmp/'
     " File name extension for the backup file
   set backupext=~
     " Automatically write a file when leaving a modified buffer
@@ -803,7 +803,7 @@ scriptencoding utf-8
 
 " ## MULTI-BYTE CHARACTERS
     " Character encoding used in Vim: `latin1`, `utf-8` `euc-jp`, `big5`, etc.
-  set encoding=utf-8
+  " set encoding=utf-8
     " Character encoding for the current file (local to buffer)
   set fileencoding=utf-8
     " Automatically detected character encodings
