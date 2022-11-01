@@ -191,15 +191,8 @@
   },
     // Items shown in popup menu in order.
   "suggest.formatItems": ["shortcut","kind", "abbr","menu"],
-    // Configure style of popup menu, |coc-config-suggest-floatConfig| is
-    // used when not specified, see |coc-config-float|.
-  "suggest.pumFloatConfig": {
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "shadow": true
-  },
+    // Not make vim select first item on popupmenu shown
+  "suggest.noselect": false,
     // The character used in abbr of complete item to indicate the item could
     // be expand as snippet.
   "suggest.snippetIndicator": " ﱟ",
@@ -207,6 +200,20 @@
   // -------------------------------------------------------------------------
     // Open and closed icon of tree view.
   "tree.closedIcon": "",
-  "tree.openedIcon": ""
+  "tree.openedIcon": "",
+  // CoC - Language Server
+  // -------------------------------------------------------------------------
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
 // vim: ft=jsonc: fdm=indent: fdi=

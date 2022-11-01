@@ -65,23 +65,18 @@
     ],
     "lua": "luacheck",
     "markdown": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki.jinja2": [
-      "write-good",
       "markdownlint"
     ],
     "vimwiki.markdown": [
-      "write-good",
       "markdownlint"
     ],
     "markdown.vimwiki": [
-      "write-good",
       "markdownlint"
     ],
     "javascript": [
@@ -95,7 +90,7 @@
 // Source: https://github.com/weirongxu/coc-explorer/
 // ===========================================================================
     // Content width, use negative value or zero to as `width - value`.
-  "explorer.width": 15,
+  "explorer.width": 75,
     // Content width, use negative value or zero to as `width - value`.
   "explorer.contentWidth": 75,
     // Preview content maximum height.
@@ -155,9 +150,9 @@
     // Default show hidden buffers.
   "explorer.buffer.showHiddenBuffers": true,
     // Template for root node of buffer source.
-  "explorer.buffer.root.template": "[icon] [title] [hidden & 1]",
+  "explorer.buffer.root.template": "[icon]  [title] [hidden & 1]",
     // Template for child node of buffer source.
-  "explorer.buffer.child.template": "[selection | 1][readonly | 1][name][modified]",
+  "explorer.buffer.child.template": "[selection | 1][readonly | 1] [name][modified] [bufname]",
     // Explorer will automatically reveal to the current buffer when open explorer.
   "explorer.file.reveal.whenOpen": true,
     // Explorer will automatically reveal to the current buffer when enter a buffer.
@@ -806,15 +801,8 @@
   },
     // Items shown in popup menu in order.
   "suggest.formatItems": ["shortcut","kind", "abbr","menu"],
-    // Configure style of popup menu, |coc-config-suggest-floatConfig| is
-    // used when not specified, see |coc-config-float|.
-  "suggest.pumFloatConfig": {
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "shadow": true
-  },
+    // Not make vim select first item on popupmenu shown
+  "suggest.noselect": false,
     // The character used in abbr of complete item to indicate the item could
     // be expand as snippet.
   "suggest.snippetIndicator": " ﱟ",
@@ -822,6 +810,20 @@
   // -------------------------------------------------------------------------
     // Open and closed icon of tree view.
   "tree.closedIcon": "",
-  "tree.openedIcon": ""
+  "tree.openedIcon": "",
+  // CoC - Language Server
+  // -------------------------------------------------------------------------
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
 // vim: ft=jsonc

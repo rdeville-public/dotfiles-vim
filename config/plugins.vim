@@ -183,7 +183,7 @@ call plug#begin(vimrc_basedir . '/.installed_plugins')
   " ## `mkdx`
     " A vim plugin that adds some nice extra's to work with markdown documents
     " Source: https://github.com/SidOfc/mkdx/
-  Plug 'SidOfc/mkdx'
+  " Plug 'SidOfc/mkdx'
 
 " # Filetype
   " List of plugins per filetype such as syntax files, editor helper (edit json

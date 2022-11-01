@@ -17,6 +17,7 @@ PACKAGE_DEPENDENCIES=(
   "go"
   "fzf"
   "texlab"
+  "terraform-ls"
 )
 
 PYTHON_DEPENDENCIES=(
@@ -156,7 +157,13 @@ test_command(){
 
 install_package_dep(){
   brew_install(){
-    brew install --quiet "$1"
+    case $1 in
+      terraform-ls)
+        brew install --quiet "hashicorp/tap/$1"
+      ;;
+      *)
+        brew install --quiet "$1"
+    esac
   }
 
   if [[ "$(uname)" == "Darwin" ]]
