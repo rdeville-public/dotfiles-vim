@@ -108,11 +108,6 @@ nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
   " Open diagnostics list
 nnoremap <leader>d :CocDiagnostics<CR>
 
-" Load custom coc extension vim configuration
-for f in split(glob(g:coc_config_home . '/*.vim'), '\n')
-  exe 'source' f
-endfor
-
 " ------------------------------------------------------------------------------
 " VIM MODELINE
 " vim: fdm=indent
