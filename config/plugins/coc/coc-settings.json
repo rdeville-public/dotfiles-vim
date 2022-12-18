@@ -60,8 +60,7 @@
     "tex": "textidote",
     "python": [
       "pylint",
-      "flake8",
-      "mypy"
+      "flake8"
     ],
     "lua": "luacheck",
     "markdown": [
@@ -85,6 +84,9 @@
     "javascript.html": [
       "eslint"
     ]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": [ "isort", "black" ]
   },
 // CoC - Explorer
 // Source: https://github.com/weirongxu/coc-explorer/
@@ -623,7 +625,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "json",
-    "terraform"
+    "terraform",
+    "typescript",
+    "javascript"
   ],
     // Root patterns to resolve workspaceFolder from parent folders of opened
     // files, resolved from up to down.

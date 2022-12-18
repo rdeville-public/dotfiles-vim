@@ -60,8 +60,7 @@
     "tex": "textidote",
     "python": [
       "pylint",
-      "flake8",
-      "mypy"
+      "flake8"
     ],
     "lua": "luacheck",
     "markdown": [
@@ -85,6 +84,9 @@
     "javascript.html": [
       "eslint"
     ]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": [ "isort", "black" ]
   }
 }
 // vim: ft=jsonc: fdm=indent: fdi=

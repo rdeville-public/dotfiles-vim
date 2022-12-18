@@ -37,6 +37,7 @@ let g:coc_global_extensions = [
     \ "coc-floatinput",
     \ "coc-git",
     \ "coc-html",
+    \ "coc-htmldjango",
     \ "coc-jedi",
     \ "coc-json",
     \ "coc-lists",
@@ -51,6 +52,8 @@ let g:coc_global_extensions = [
     \ "coc-toml",
     \ "coc-vimlsp",
     \ "coc-yaml",
+    \ "coc-eslint",
+    \ "coc-tsserver",
   \]
     "coc-css",
 
@@ -81,7 +84,9 @@ let g:coc_enable_locationlist = 0
   " `javascriptreact` and `typescript.tsx` to
   " `typescriptreact`. You can find the mapped filetype
   " of the current buffer by running `:CocCommand document.echoFiletype`.
-let g:coc_filetype_map = {}
+let g:coc_filetype_map = {
+  \ 'jinja': 'htmldjango',
+\ }
 
   " Error character used for statusline, default: `E`
 let g:coc_status_error_sign = " "
