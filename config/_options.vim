@@ -170,20 +170,20 @@ scriptencoding utf-8
   set tagstack
     " When completing tags in Insert mode show more info
   set showfulltag
-    " Command for executing cscope
-  set cscopeprg=cscope
-    " Use cscope for tag commands
-  set cscopetag
-    " 0 or 1; the order in which `:cstag` performs a search
-  set cscopetagorder=0
-    " Give messages when adding a cscope database
-  set cscopeverbose
-    " How many components of the path to show
-  set cscopepathcomp=0
-    " When to open a quickfix window for cscope
-  set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
-    " `cscoperelative` file names in a cscope file are relative to that file
-  set nocscoperelative
+  "   " Command for executing cscope
+  " set cscopeprg=cscope
+  "   " Use cscope for tag commands
+  " set cscopetag
+  "   " 0 or 1; the order in which `:cstag` performs a search
+  " set cscopetagorder=0
+  "   " Give messages when adding a cscope database
+  " set cscopeverbose
+  "   " How many components of the path to show
+  " set cscopepathcomp=0
+  "   " When to open a quickfix window for cscope
+  " set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
+  "   " `cscoperelative` file names in a cscope file are relative to that file
+  " set nocscoperelative
 
 " ## DISPLAYING TEXT
     " Number of lines to scroll for CTRL-U and CTRL-D (local to window)
@@ -364,23 +364,23 @@ scriptencoding utf-8
     set ttym=xterm2
   endif
 
-" ## PRINTING
-    " List of items that control the format of :hardcopy output
-  set printoptions=paper:a4
-    " Name of the printer to be used for :hardcopy
-  set printdevice=
-    " Expression used to print the PostScript file for :hardcopy
-  set printexpr=system('lpr'\ .\ (&printdevice\ ==\ ''\ ?\ ''\ :\ '\ -P'\ .\ &printdevice)\ .\ '\ '\ .\ v:fname_in)\ .\ delete(v:fname_in)\ +\ v:shell_error
-    " Name of the font to be used for :hardcopy
-  set printfont=FuraCode\ Nerd\ Font
-    " Format of the header used for :hardcopy
-  set printheader=%<%f%h%m%=Page\ %N
-    " Encoding used to print the PostScript file for :hardcopy
-  set printencoding=utf-8
-    " The CJK character set to be used for CJK output from :hardcopy
-  set printmbcharset=
-    " List of font names to be used for CJK output from :hardcopy
-  set printmbfont=
+" " ## PRINTING
+"     " List of items that control the format of :hardcopy output
+"   set printoptions=paper:a4
+"     " Name of the printer to be used for :hardcopy
+"   set printdevice=
+"     " Expression used to print the PostScript file for :hardcopy
+"   set printexpr=system('lpr'\ .\ (&printdevice\ ==\ ''\ ?\ ''\ :\ '\ -P'\ .\ &printdevice)\ .\ '\ '\ .\ v:fname_in)\ .\ delete(v:fname_in)\ +\ v:shell_error
+"     " Name of the font to be used for :hardcopy
+"   set printfont=FuraCode\ Nerd\ Font
+"     " Format of the header used for :hardcopy
+"   set printheader=%<%f%h%m%=Page\ %N
+"     " Encoding used to print the PostScript file for :hardcopy
+"   set printencoding=utf-8
+"     " The CJK character set to be used for CJK output from :hardcopy
+"   set printmbcharset=
+"     " List of font names to be used for CJK output from :hardcopy
+"   set printmbfont=
 
 " ## MESSAGES AND INFO
     " Add 's' flag in 'shortmess' (don't show search message)

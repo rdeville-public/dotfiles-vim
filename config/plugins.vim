@@ -52,7 +52,6 @@ call plug#begin(vimrc_basedir . '/.installed_plugins')
     " Source: https://github.com/tribela/vim-transparent
   Plug 'tribela/vim-transparent'
 
-
   " ## `vim-hexokinase`
     " Asynchronously displaying the colours in the file
     " Source: https://github.com/rrethy/vim-hexokinase

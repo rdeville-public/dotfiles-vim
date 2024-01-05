@@ -163,6 +163,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
   \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+hi ActiveWindow ctermbg=darkgray ctermfg=gray guibg=#333333
+set winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 
 " ------------------------------------------------------------------------------
 " VIM MODELINE

@@ -165,11 +165,19 @@ install_package_dep(){
         brew install --quiet "$1"
     esac
   }
+  arch_install(){
+    yay -Sy "$1"
+
+  }
 
   if [[ "$(uname)" == "Darwin" ]]
   then
     vim_log "INFO" "Installing brew packages dependency."
     brew_install "${PACKAGE_DEPENDENCIES[@]}"
+  elif [[ "$(uname -a)" =~ Linux.*arch ]]
+  then
+    vim_log "INFO" "Installing arch packages dependency."
+    arch_install "${PACKAGE_DEPENDENCIES[@]}"
   else
     vim_log "ERROR" "Please code install method for package dependencies for this OS."
   fi

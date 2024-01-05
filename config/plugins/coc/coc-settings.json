@@ -828,6 +828,7 @@
       "initializationOptions": {},
       "settings": {}
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
 // vim: ft=jsonc
