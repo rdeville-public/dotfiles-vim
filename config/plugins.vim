@@ -8,7 +8,13 @@ endfunction
 
   " Start vim-plug list of plugin, and tell it where to download plugins.
   " Make sure you use single quotes.
-call plug#begin(vimrc_basedir . '/.installed_plugins')
+let plugin_dir = expand($HOME . '/.cache/vim/plugins')
+if !isdirectory(plugin_dir)
+   call mkdir(plugin_dir)
+endif
+
+call plug#begin(plugin_dir)
+
 
 " # Interface
     " List of plugin dedicated to improve Vim/NeoVim TUI

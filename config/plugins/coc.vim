@@ -21,7 +21,11 @@ let g:coc_config_home = new_rtp . '/plugins/coc/'
   " files(extensions, mru and so on), default:
   " Windows: `~/AppData/Local/coc`
   " Other: `~/.config/coc`
-let g:coc_data_home = vimrc_basedir . '/.installed_coc/'
+let coc_dir = expand($HOME . '/.cache/vim/coc')
+if !isdirectory(coc_dir)
+   call mkdir(coc_dir)
+endif
+let g:coc_data_home = coc_dir
 
   " Global extension names to install when they aren't installed.
   " ```vim
