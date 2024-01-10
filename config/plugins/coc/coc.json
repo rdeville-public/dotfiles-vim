@@ -13,9 +13,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "json",
-    "terraform",
-    "typescript",
-    "javascript"
+    "terraform"
+    //"typescript",
+    //"javascript"
   ],
     // Root patterns to resolve workspaceFolder from parent folders of opened
     // files, resolved from up to down.

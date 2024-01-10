@@ -1,0 +1,66 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txtsnippet init_logger "init_logger() method to setup bash logger" b
+snippet init_logger "init_logger() method to setup bash logger" b
+init_logger(){
+  if ping -q -c 1 framagit.org &> /dev/null
+  then
+    source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
+  else
+    echo -e t"\e[1;31m[ERROR]\e[0m\e[31m \$0: Not able to ping \e[1;31mframagit.org\e[0m"
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Script will now exit\e[0m"
+    exit 1
+  fi
+}
+
+
+endsnippet
+snippet bashscript "Init bash script" b
+#!/usr/bin/env bash
+# """TODO
+# """
+
+SCRIPTPATH="$( cd -- "$(dirname "\$0")" >/dev/null 2>&1 ; pwd -P )"
+DEBUG_LEVEL=${$1DEBUG_LEVEL:-"WARNING"}
+
+init_logger(){
+  if ping -q -c 1 framagit.org &> /dev/null
+  then
+    source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
+  else
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Not able to ping \e[1;31mframagit.org\e[0m"
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Script will now exit\e[0m"
+    exit 1
+  fi
+}
+
+main(){
+  # TODO
+}
+
+main "$@"
+
+# vim: ft=sh
+endsnippet

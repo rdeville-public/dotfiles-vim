@@ -20,7 +20,12 @@ main(){
       echo "$(sed -e "/^{/d" -e "/^}/d" -e "/.*vim: ft=.*/d" "${i_ext}")," >> "${setting}"
     fi
   done
-  sed -i "" "$ s/.$//" "${setting}"
+  if [[ "$(uname)" == "Darwin" ]]
+  then
+    sed -i "" "$ s/.$//" "${setting}"
+  else
+    sed -i "$ s/.$//" "${setting}"
+  fi
   echo "}" >> "${setting}"
   echo "// vim: ft=jsonc" >> "${setting}"
 }

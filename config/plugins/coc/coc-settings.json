@@ -305,6 +305,224 @@
     "venv",
     ".direnv"
   ],
+// CoC
+// Source: https://github.com/neoclide/coc-lists/
+// ===========================================================================
+  // CoC - Preferences
+  // -------------------------------------------------------------------------
+    // Linked editing feature enables editing multiple linked ranges at the same
+    // time, for example: html tags.
+  "coc.preferences.enableLinkedEditing": true,
+    // Enable messages shown in notification dialog.
+  "coc.preferences.enableMessageDialog": true,
+    // Filetypes that should run format on save.
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "json",
+    "terraform"
+    //"typescript",
+    //"javascript"
+  ],
+    // Root patterns to resolve workspaceFolder from parent folders of opened
+    // files, resolved from up to down.
+  "coc.preferences.rootPatterns": [
+    "pyproject.toml",
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
+  // CoC - Native Sources : Around (Current File)
+  // -------------------------------------------------------------------------
+  "coc.source.around.enable": true,
+  "coc.source.around.priority": 1,
+  "coc.source.around.shortcut": " ",
+  // CoC - Native Sources : Buffer (Opened Buffers)
+  // -------------------------------------------------------------------------
+  "coc.source.buffer.enable": true,
+  "coc.source.buffer.priority": 1,
+  "coc.source.buffer.shortcut": " ",
+  // CoC - Native Sources : Buffer (Opened Buffers)
+  // -------------------------------------------------------------------------
+  "coc.source.file.enable": true,
+  "coc.source.file.priority": 10,
+  "coc.source.file.shortcut": " ",
+  // CoC - Diagnostic
+  // -------------------------------------------------------------------------
+    // Set to false to disable diagnostic display.
+  "diagnostic.enable": true,
+    // Text of error,warning,hing & info sign.
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.hintSign": " ",
+    // Configuration of floating window/popup for diagnostic messages, see
+    // |coc-config-float|.
+  "diagnostic.floatConfig": {
+    "title": "ﯭ Diagnostic",
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true
+  },
+    // Define the diagnostic format that shown in float window or echoed,
+    // available parts: source, code, severity, message.
+  "diagnostic.format": "[%source%code][%severity]\n%message",
+    // Limit count for highlighted diagnostics, too many diagnostic highlights
+    // could make vim stop responding.
+  "diagnostic.highlightLimit": 100,
+    // Use virtual text to display diagnostics, requires neovim >= 0.5.0 or
+    // vim >= 9.0.0067.
+  "diagnostic.virtualText": true,
+    // Define the virtual text diagnostic format, available parts: source, code,
+    // severity, message.
+  "diagnostic.virtualTextFormat": "%severity - %message",
+    // The prefix added virtual text diagnostics.
+  "diagnostic.virtualTextPrefix": " ",
+    // Configure default float window/popup style created by float factory
+  // CoC - FloatFactory
+  // -------------------------------------------------------------------------
+    // (created around cursor and automatically closed), properties of
+    // |coc-config-float| are used.
+  "floatFactory.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true,
+    "shadow": false,
+    "title": "",
+    "winblend": 0
+  },
+  // CoC - List
+  // -------------------------------------------------------------------------
+    // Whether to align lists in columns.
+  "list.alignColumns": true,
+    // Height of split list window.
+  "list.height": 15,
+    // The character used as first character in prompt line.
+  "list.indicator": " ﬌ ",
+    // Max height for preview window of list.
+  "list.maxPreviewHeight": 25,
+    // Sign text for selected lines.
+  "list.selectedSignText": "",
+    // An array of statusline segments that will be used to draw the status
+    // line for list windows.
+  "list.statusLineSegments": [
+    "%#CocListMode# %{coc#list#status(\"mode\")}",
+    "%#CocListModeToNumber#",
+    "%#CocListNumber#",
+    "[%{coc#list#status(\"total\")}] %l/%L",
+    "%#CocListNumberToInfo#",
+    "%{coc#list#status(\"loading\")} %{coc#list#status(\"args\")}"
+  ],
+    // Show progress notification in status line, instead of use float
+    // window/popup.
+  "notification.statusLineProgress": false,
+  // CoC - Outline
+  // -------------------------------------------------------------------------
+    // Expand level of tree nodes.
+  "outline.expandLevel": 5,
+    // Default sort method for symbols outline, available are 'category',
+    // 'position' and 'name'.
+  "outline.sortBy": "category",
+  // CoC - Semantic Tokens
+  // -------------------------------------------------------------------------
+    // Enable semantic tokens support.
+  "semanticTokens.enable": true,
+  // CoC - Signature
+  // -------------------------------------------------------------------------
+    // Configuration of floating window/popup for signature documents, see
+    // |coc-config-float|.
+  "signature.floatConfig": {
+    "title": " Signature",
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "close": false,
+    "focusable": true,
+    "shadow": false
+  },
+  // CoC - Snippet
+  // -------------------------------------------------------------------------
+    // Use highlight group 'CocSnippetVisual' to highlight placeholders with
+    // same index of current one.
+  "snippet.highlight": true,
+    // Text shown in statusline to indicate snippet session is activated.
+  "snippet.statusText": "  Snippet",
+  // CoC - Suggets
+  // -------------------------------------------------------------------------
+    // Set custom labels to completion items' kinds.
+  "suggest.completionItemKindLabels": {
+    // NerdFont Char
+    "text": "",
+    "method": "",
+    "function": "ƒ",
+    "constructor": "",
+    "field": "料",
+    "variable": "",
+    "class": "",
+    "interface": "",
+    "module": "",
+    "property": "",
+    "unit": "",
+    "value": "",
+    "enum": "",
+    "keyword": "",
+    "snippet": "",
+    "color": "",
+    "file": "",
+    "reference": "渚",
+    "folder": "",
+    "enumMember": "",
+    "constant": "",
+    "struct": "פּ",
+    "event": "鬒",
+    "operator": "Ψ",
+    "typeParameter": "",
+    "default": ""
+  },
+    // Default sorting behavior when trigger is empty, could be `"length"`,
+    // `"alphabetical"` or `"none"`.
+  "suggest.defaultSortMethod": "alphabetical",
+    // Configuration of floating window/popup for signature documents, see
+    // |coc-config-float|.
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloating",
+    "shadow": false
+  },
+    // Items shown in popup menu in order.
+  "suggest.formatItems": ["shortcut","kind", "abbr","menu"],
+    // Not make vim select first item on popupmenu shown
+  "suggest.noselect": false,
+    // The character used in abbr of complete item to indicate the item could
+    // be expand as snippet.
+  "suggest.snippetIndicator": " ﱟ",
+  // CoC - Tree
+  // -------------------------------------------------------------------------
+    // Open and closed icon of tree view.
+  "tree.closedIcon": "",
+  "tree.openedIcon": "",
+  // CoC - Language Server
+  // -------------------------------------------------------------------------
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
 // CoC - Json
 // Source: https://github.com/neoclide/coc-json
 // ===========================================================================
@@ -610,225 +828,6 @@
   // },
     // When set to true the YAML language server will pull in all available
     // schemas from JSON Schema Store
-  "yaml.schemaStore.enable": true,
-// CoC
-// Source: https://github.com/neoclide/coc-lists/
-// ===========================================================================
-  // CoC - Preferences
-  // -------------------------------------------------------------------------
-    // Linked editing feature enables editing multiple linked ranges at the same
-    // time, for example: html tags.
-  "coc.preferences.enableLinkedEditing": true,
-    // Enable messages shown in notification dialog.
-  "coc.preferences.enableMessageDialog": true,
-    // Filetypes that should run format on save.
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "json",
-    "terraform",
-    "typescript",
-    "javascript"
-  ],
-    // Root patterns to resolve workspaceFolder from parent folders of opened
-    // files, resolved from up to down.
-  "coc.preferences.rootPatterns": [
-    "pyproject.toml",
-    ".git",
-    ".hg",
-    ".projections.json"
-  ],
-  // CoC - Native Sources : Around (Current File)
-  // -------------------------------------------------------------------------
-  "coc.source.around.enable": true,
-  "coc.source.around.priority": 1,
-  "coc.source.around.shortcut": " ",
-  // CoC - Native Sources : Buffer (Opened Buffers)
-  // -------------------------------------------------------------------------
-  "coc.source.buffer.enable": true,
-  "coc.source.buffer.priority": 1,
-  "coc.source.buffer.shortcut": " ",
-  // CoC - Native Sources : Buffer (Opened Buffers)
-  // -------------------------------------------------------------------------
-  "coc.source.file.enable": true,
-  "coc.source.file.priority": 10,
-  "coc.source.file.shortcut": " ",
-  // CoC - Diagnostic
-  // -------------------------------------------------------------------------
-    // Set to false to disable diagnostic display.
-  "diagnostic.enable": true,
-    // Text of error,warning,hing & info sign.
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": " ",
-  "diagnostic.hintSign": " ",
-    // Configuration of floating window/popup for diagnostic messages, see
-    // |coc-config-float|.
-  "diagnostic.floatConfig": {
-    "title": "ﯭ Diagnostic",
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "close": false,
-    "focusable": true
-  },
-    // Define the diagnostic format that shown in float window or echoed,
-    // available parts: source, code, severity, message.
-  "diagnostic.format": "[%source%code][%severity]\n%message",
-    // Limit count for highlighted diagnostics, too many diagnostic highlights
-    // could make vim stop responding.
-  "diagnostic.highlightLimit": 100,
-    // Use virtual text to display diagnostics, requires neovim >= 0.5.0 or
-    // vim >= 9.0.0067.
-  "diagnostic.virtualText": true,
-    // Define the virtual text diagnostic format, available parts: source, code,
-    // severity, message.
-  "diagnostic.virtualTextFormat": "%severity - %message",
-    // The prefix added virtual text diagnostics.
-  "diagnostic.virtualTextPrefix": " ",
-    // Configure default float window/popup style created by float factory
-  // CoC - FloatFactory
-  // -------------------------------------------------------------------------
-    // (created around cursor and automatically closed), properties of
-    // |coc-config-float| are used.
-  "floatFactory.floatConfig": {
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "close": false,
-    "focusable": true,
-    "shadow": false,
-    "title": "",
-    "winblend": 0
-  },
-  // CoC - List
-  // -------------------------------------------------------------------------
-    // Whether to align lists in columns.
-  "list.alignColumns": true,
-    // Height of split list window.
-  "list.height": 15,
-    // The character used as first character in prompt line.
-  "list.indicator": " ﬌ ",
-    // Max height for preview window of list.
-  "list.maxPreviewHeight": 25,
-    // Sign text for selected lines.
-  "list.selectedSignText": "",
-    // An array of statusline segments that will be used to draw the status
-    // line for list windows.
-  "list.statusLineSegments": [
-    "%#CocListMode# %{coc#list#status(\"mode\")}",
-    "%#CocListModeToNumber#",
-    "%#CocListNumber#",
-    "[%{coc#list#status(\"total\")}] %l/%L",
-    "%#CocListNumberToInfo#",
-    "%{coc#list#status(\"loading\")} %{coc#list#status(\"args\")}"
-  ],
-    // Show progress notification in status line, instead of use float
-    // window/popup.
-  "notification.statusLineProgress": false,
-  // CoC - Outline
-  // -------------------------------------------------------------------------
-    // Expand level of tree nodes.
-  "outline.expandLevel": 5,
-    // Default sort method for symbols outline, available are 'category',
-    // 'position' and 'name'.
-  "outline.sortBy": "category",
-  // CoC - Semantic Tokens
-  // -------------------------------------------------------------------------
-    // Enable semantic tokens support.
-  "semanticTokens.enable": true,
-  // CoC - Signature
-  // -------------------------------------------------------------------------
-    // Configuration of floating window/popup for signature documents, see
-    // |coc-config-float|.
-  "signature.floatConfig": {
-    "title": " Signature",
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "close": false,
-    "focusable": true,
-    "shadow": false
-  },
-  // CoC - Snippet
-  // -------------------------------------------------------------------------
-    // Use highlight group 'CocSnippetVisual' to highlight placeholders with
-    // same index of current one.
-  "snippet.highlight": true,
-    // Text shown in statusline to indicate snippet session is activated.
-  "snippet.statusText": "  Snippet",
-  // CoC - Suggets
-  // -------------------------------------------------------------------------
-    // Set custom labels to completion items' kinds.
-  "suggest.completionItemKindLabels": {
-    // NerdFont Char
-    "text": "",
-    "method": "",
-    "function": "ƒ",
-    "constructor": "",
-    "field": "料",
-    "variable": "",
-    "class": "",
-    "interface": "",
-    "module": "",
-    "property": "",
-    "unit": "",
-    "value": "",
-    "enum": "",
-    "keyword": "",
-    "snippet": "",
-    "color": "",
-    "file": "",
-    "reference": "渚",
-    "folder": "",
-    "enumMember": "",
-    "constant": "",
-    "struct": "פּ",
-    "event": "鬒",
-    "operator": "Ψ",
-    "typeParameter": "",
-    "default": ""
-  },
-    // Default sorting behavior when trigger is empty, could be `"length"`,
-    // `"alphabetical"` or `"none"`.
-  "suggest.defaultSortMethod": "alphabetical",
-    // Configuration of floating window/popup for signature documents, see
-    // |coc-config-float|.
-  "suggest.floatConfig": {
-    "border": true,
-    "rounded": true,
-    "highlight": "CocFloating",
-    "borderhighlight": "CocFloating",
-    "shadow": false
-  },
-    // Items shown in popup menu in order.
-  "suggest.formatItems": ["shortcut","kind", "abbr","menu"],
-    // Not make vim select first item on popupmenu shown
-  "suggest.noselect": false,
-    // The character used in abbr of complete item to indicate the item could
-    // be expand as snippet.
-  "suggest.snippetIndicator": " ﱟ",
-  // CoC - Tree
-  // -------------------------------------------------------------------------
-    // Open and closed icon of tree view.
-  "tree.closedIcon": "",
-  "tree.openedIcon": "",
-  // CoC - Language Server
-  // -------------------------------------------------------------------------
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-      "args": ["serve"],
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
-  },
-  "snippets.ultisnips.pythonPrompt": false
+  "yaml.schemaStore.enable": true
 }
 // vim: ft=jsonc
