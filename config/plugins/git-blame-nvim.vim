@@ -48,6 +48,6 @@ if has('nvim')
 
   " Whether or not blame message should be displayed as virtual text. You may want
   " to disable this if you display the blame message in statusline.
-  let g:gitblame_display_virtual_text = 0
+  let g:gitblame_display_virtual_text = 1
 
 endif
