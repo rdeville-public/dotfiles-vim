@@ -23,31 +23,19 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txtsnippet init_logger "init_logger() method to setup bash logger" b
-snippet init_logger "init_logger() method to setup bash logger" b
-init_logger(){
-  if ping -q -c 1 framagit.org &> /dev/null
-  then
-    source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
-  else
-    echo -e t"\e[1;31m[ERROR]\e[0m\e[31m \$0: Not able to ping \e[1;31mframagit.org\e[0m"
-    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Script will now exit\e[0m"
-    exit 1
-  fi
-}
-
-
-endsnippet
-snippet bashscript "Init bash script" b
+snippet bootstrap "Init boostrap script" b
 #!/usr/bin/env bash
-# """TODO
+# """Bootstrap script to init repo
 # """
 
-SCRIPTPATH="$( cd -- "$(dirname "\$0")" >/dev/null 2>&1 ; pwd -P )"
-DEBUG_LEVEL=${$1DEBUG_LEVEL:-"WARNING"}
+# shellcheck disable=SC2034
+SCRIPTPATH="$( cd -- "$(dirname "\$0")" >/dev/null 2>&1 || exit 1 ; pwd -P )"
+SCRIPTNAME="$(basename "\$0")"
 
 init_logger(){
   if ping -q -c 1 framagit.org &> /dev/null
   then
+    # shellcheck disable=SC1090
     source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
   else
     echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Not able to ping \e[1;31mframagit.org\e[0m"
@@ -56,11 +44,142 @@ init_logger(){
   fi
 }
 
+check_dir(){
+  local dir="\$1"
+  if ! [[ -d "${dir}" ]]
+  then
+    _log "INFO" "Create directory ${dir}"
+    mkdir -p "${dir}"
+  fi
+}
+
+check_cmd() {
+  cmd=\$1
+  quit=\${2:-"true"}
+  if ! command -v "${cmd}" &> /dev/null
+  then
+    if $quit
+    then
+      _log "ERROR" "No ${cmd} executable found."
+      exit 1
+    fi
+    _log "WARNING" "No ${cmd} executable found."
+    return 1
+  fi
+  return 0
+}
+
+check_file() {
+  local file=\$1
+  local backup=\${2:-"false"}
+  if [[ -f "${file}" ]] && [[ "${backup}" == "true" ]]
+  then
+    _log "INFO" "File ${file} already exists ! Will moved to ${file}.bak"
+    mv "${file}" "${file}.bak"
+    return 0
+  elif [[ -f "${file}" ]] && [[ "${backup}" == true ]]
+  then
+    _log "INFO" "File ${file} already exists ! Will not be moved"
+    return 1
+  fi
+}
+
 main(){
+  # TODO Change below substitution if need
+  local DEBUG_LEVEL="${DEBUG_LEVEL:-INFO}"
+  init_logger
   # TODO
 }
 
 main "$@"
 
 # vim: ft=sh
+endsnippet
+snippet bashscript "Init bash script" b
+#!/usr/bin/env bash
+# """TODO
+# """
+
+# shellcheck disable=SC2034
+SCRIPTPATH="$( cd -- "$(dirname "\$0")" >/dev/null 2>&1 || exit 1 ; pwd -P )"
+SCRIPTNAME="$(basename "\$0")"
+
+init_logger(){
+  if ping -q -c 1 framagit.org &> /dev/null
+  then
+    # shellcheck disable=SC1090
+    source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
+  else
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \${SCRIPTNAME}: Not able to ping \e[1;31mframagit.org\e[0m"
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \${SCRIPTNAME}: Script will now exit\e[0m"
+    exit 1
+  fi
+}
+
+main(){
+  # TODO Change below substitution if need
+  local DEBUG_LEVEL="${DEBUG_LEVEL:-INFO}"
+  init_logger
+  # TODO
+}
+
+main "$@"
+
+# vim: ft=sh
+endsnippet
+snippet init_logger "init_logger() method to setup bash logger" b
+init_logger(){
+  if ping -q -c 1 framagit.org &> /dev/null
+  then
+    # shellcheck disable=SC1090
+    source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
+  else
+    echo -e t"\e[1;31m[ERROR]\e[0m\e[31m \$0: Not able to ping \e[1;31mframagit.org\e[0m"
+    echo -e "\e[1;31m[ERROR]\e[0m\e[31m \$0: Script will now exit\e[0m"
+    exit 1
+  fi
+}
+endsnippet
+snippet check_dir "Function to check if directory exists, create it if not" b
+check_dir(){
+  local dir="\$1"
+  if ! [[ -d "${dir}" ]]
+  then
+    _log "INFO" "Create directory ${dir}"
+    mkdir -p "${dir}"
+  fi
+}
+endsnippet
+snippet check_cmd "Check if cmd exists, if not exit 1 or return 1" b
+check_cmd() {
+  cmd=\$1
+  quit=${2:-true}
+  if ! command -v "${cmd}" &> /dev/null
+  then
+    if $quit
+    then
+      _log "ERROR" "No ${cmd} executable found."
+      exit 1
+    fi
+    _log "WARNING" "No ${cmd} executable found."
+    return 1
+  fi
+  return 0
+}
+endsnippet
+snippet check_file "Check if file exists, move it if required" b
+check_file() {
+  local file=\$1
+  local backup=${2:-"false"}
+  if [[ -f "${file}" ]] && [[ "${backup}" == "true" ]]
+  then
+    _log "INFO" "File ${file} already exists ! Will moved to ${file}.bak"
+    mv "${file}" "${file}.bak"
+    return 0
+  elif [[ -f "${file}" ]] && [[ "${backup}" == true ]]
+  then
+    _log "INFO" "File ${file} already exists ! Will not be moved"
+    return 1
+  fi
+}
 endsnippet

@@ -77,7 +77,6 @@ function! Hostname(hostname)
   return match($HOST, a:hostname) >= 0
 endfunction
 
-
 " # Mapping
   " Set of basic mapping or remmapping of key.
 
@@ -157,6 +156,8 @@ let g:markdown_fenced_languages = [
   \ 'json',
   \ 'jsonc',
 \]
+
+let g:python3_host_prog=substitute(system("which -a python3 | tail -n1"), "\n", '', 'g')
 
   " Show vim identifier of below word, useful when creating a colorscheme
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

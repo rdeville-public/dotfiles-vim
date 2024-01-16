@@ -2,12 +2,20 @@
   " File storing configuration options and method for the plugin `vim-workspace`.
 
 function SessionDir(vimrc_basedir)
+  if !empty($XDG_CACHE_HOME)
+    let l:cache_dir = expand($XDG_CACHE_HOME)
+  else
+    let l:cache_dir = expand($HOME) . "/.cache"
+  endif
+
+  " Check if in git directory
   let l:git_dir = finddir('.git/..', expand('%:p:h').';')
+
   if l:git_dir != ""
     let l:git_dir = substitute(l:git_dir, expand($HOME) . "/", "", "")
-    let l:path = a:vimrc_basedir . '/.sessions/' . l:git_dir
+    let l:path = l:cache_dir . '/.sessions/' . l:git_dir
   else
-    let l:path = a:vimrc_basedir . '/.sessions/' . expand('%:p:h').';'
+    let l:path = l:cache_dir . '/.sessions/' . expand('%:p:h').';'
   endif
 
   if ! isdirectory(l:path)

@@ -765,6 +765,12 @@
 // ===========================================================================
     // Extends filetype's snippets with other filetypes, example: {
   "snippets.extends": {
+    "bash": [
+      "sh"
+    ],
+    "zsh": [
+      "sh"
+    ],
     "cpp": [
       "c"
     ],

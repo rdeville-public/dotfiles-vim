@@ -23,12 +23,6 @@ for f in split(glob(g:new_rtp . '/*.vim'), '\n')
 endfor
 set wildignore=
 
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
-
 " Load configuration for each plugins except hightlight if present as plugin
 " highlight are loaded from colorscheme file
 for f in split(glob(g:new_rtp . '/plugins/*.vim'), '\n')
