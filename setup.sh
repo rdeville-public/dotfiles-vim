@@ -43,8 +43,8 @@ CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 declare -A LINKS
 # LINKS["<SOURCE>"]="<DEST>"
 LINKS["${HOME}/.vimrc"]="${SCRIPTPATH}/vimrc"
-LINKS["${XDG_CONFIG_HOME}/nvim"]="${SCRIPTPATH}"
-LINKS["${XDG_CONFIG_HOME}/vim"]="${SCRIPTPATH}"
+LINKS["${CONFIG_DIR}/nvim"]="${SCRIPTPATH}"
+LINKS["${CONFIG_DIR}/vim"]="${SCRIPTPATH}"
 
 declare -A CRONS
 # CRONS["<PATH|CMD>"]="<RECURRENCE>"
