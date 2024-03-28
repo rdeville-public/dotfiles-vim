@@ -54,7 +54,7 @@ let g:colors_name = "material-dark"
   call LK("MsgArea"                  , "Normal"                 , ""                 , "")                " Area for messages and cmdline
   call HL("Visual"                   , ""                       , ""                 , g:lime_900) " Visual mode selection
   call LK("VisualNOS"                , "Visual"                 , ""                 , "")                " Visual mode selection when vim is 'Not Owning the Selection'.
-  call HL("NonText"                  , ""                       , g:grey_500         , "")                " '@' at the end of the window characters from 'showbreak' Popup menu: selected item.
+  call HL("NonText"                  , ""                       , g:grey_900         , "")                " '@' at the end of the window characters from 'showbreak' Popup menu: selected item.
   call HL("Debug"                    , ""                       , g:white            , g:light_green_900) " Debug statement
   call HL("WarningMsg"               , ""                       , g:white            , g:orange_A200)     " Warning messages
   call HL("Error"                    , ""                       , g:white            , g:red_A200)        " Error Statement

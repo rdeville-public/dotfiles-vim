@@ -289,6 +289,9 @@ call plug#begin(plugin_dir)
     " Source: https://github.com/mattn/calendar-vim
   "Plug 'mattn/calendar-vim'
 
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'fladson/vim-kitty'
+
 " Finish the call to vim-plug
 call plug#end()
 

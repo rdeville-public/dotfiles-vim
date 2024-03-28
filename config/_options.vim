@@ -226,7 +226,8 @@ scriptencoding utf-8
   set list
     " List of strings used for list mode
   "set listchars=eol:¬,tab:··,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
-  set listchars=tab:˾\ ,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
+  set listchars=eol:𝅍,tab:˾\ ,extends:→,precedes:←,space:\ ,trail:×,nbsp:·
+
     " Show the line number for each line (local to window)
   set number
     " Show the relative line number for each line (local to window)
